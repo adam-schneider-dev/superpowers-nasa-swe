@@ -13,6 +13,11 @@ from filter_matrix import filter_rows_for_class, render_matrix_markdown, render_
 from add_tailoring_entry import add_tailoring_entry
 
 
+def load_catalog():
+    with open(os.path.join(ROOT, "data", "swe-catalog.yaml")) as f:
+        return yaml.safe_load(f)
+
+
 def test_full_pipeline_for_a_class_d_subsystem(tmp_path):
     # 1. Classify: a research/engineering tool with no safety implications -> Class D
     result = classify({
@@ -26,13 +31,12 @@ def test_full_pipeline_for_a_class_d_subsystem(tmp_path):
     assert result["class"] == "D"
 
     # 2. Load the real catalog and filter to Class D
-    with open(os.path.join(ROOT, "data", "swe-catalog.yaml")) as f:
-        catalog = yaml.safe_load(f)
+    catalog = load_catalog()
     rows = filter_rows_for_class(catalog, "D")
     assert len(rows) > 0, "expected at least one Class D requirement in the populated catalog slice"
 
     md = render_matrix_markdown(rows, subsystem="test-subsystem", software_class="D")
-    status_rows = render_matrix_status_yaml(rows)
+    status_rows = render_matrix_status_yaml(rows, "D")
 
     matrix_md_path = tmp_path / "requirements-mapping-matrix.md"
     matrix_yaml_path = tmp_path / "requirements-mapping-matrix.yaml"
@@ -42,6 +46,8 @@ def test_full_pipeline_for_a_class_d_subsystem(tmp_path):
 
     assert "Class D" in matrix_md_path.read_text()
     assert all(r["status"] == "not-started" for r in status_rows)
+    # tailoring-request reads its default approver out of this file, so it has to be there.
+    assert all(r["default_approver"] == "Center" for r in status_rows)
 
     # 3. Tailor out the first requirement
     first_id = status_rows[0]["swe_id"]
@@ -58,3 +64,40 @@ def test_full_pipeline_for_a_class_d_subsystem(tmp_path):
     tailored_row = next(r for r in updated if r["swe_id"] == first_id)
     assert tailored_row["status"] == "tailored-out"
     assert first_id in log_path.read_text()
+
+
+def test_full_pipeline_for_a_class_f_subsystem(tmp_path):
+    """Class F is the business/IT case — before the Appendix C column fix its matrix was empty."""
+    result = classify({
+        "class_a_human_rated": False,
+        "class_b_non_human_space_or_large_aero": False,
+        "class_c_mission_support_or_facility": False,
+        "class_d_basic_science_or_research": False,
+        "class_e_design_concept_general_purpose": False,
+        "is_safety_critical": False,
+    })
+    assert result["class"] == "F"
+
+    rows = filter_rows_for_class(load_catalog(), "F")
+    assert len(rows) == 31, "Appendix C marks Class F on 31 of the 49 transcribed rows"
+
+    md = render_matrix_markdown(rows, subsystem="payroll-tool", software_class="F")
+    status_rows = render_matrix_status_yaml(rows, "F")
+
+    assert "Class F" in md
+    # Class F tailoring is approved by the CIO, not the Center (NPR 7150.2D §2.1.5.4).
+    assert all(r["default_approver"] == "CIO" for r in status_rows)
+
+    matrix_yaml_path = tmp_path / "requirements-mapping-matrix.yaml"
+    log_path = tmp_path / "tailoring-log.md"
+    with open(matrix_yaml_path, "w") as f:
+        yaml.dump(status_rows, f, sort_keys=False)
+
+    add_tailoring_entry(
+        str(matrix_yaml_path), str(log_path),
+        swe_id=status_rows[0]["swe_id"], rationale="Handled by the enterprise IT process",
+        risk="Low", mitigation="Existing ITSM change control",
+        approver=status_rows[0]["default_approver"],
+    )
+
+    assert "CIO" in log_path.read_text()
