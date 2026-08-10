@@ -3,6 +3,9 @@
 .claude/
 .superpowers/
 .DS_Store
+SESSION-HANDOFF.md
+.docs/
+.arch/
 node_modules/
 __pycache__/
 .pytest_cache/
