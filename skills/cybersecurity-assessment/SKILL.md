@@ -23,6 +23,8 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## Running the script
 
+If the subsystem's class has no rows for this section in the matrix, this skill has nothing to record — say so and don't run the script at all (calling it with an id absent from the matrix raises `KeyError`). Check the matrix first; the example ids below are illustrative of a class that does carry §3.11 rows.
+
 ```bash
 cd <this-plugin's-install-path>/skills/cybersecurity-assessment/scripts
 python3 -c "

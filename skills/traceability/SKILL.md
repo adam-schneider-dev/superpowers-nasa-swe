@@ -37,6 +37,8 @@ Confirm the subsystem's class (from `classification.yaml`) and tell the user whi
 
 ## Running the script
 
+If the subsystem's class has no rows for this section in the matrix, this skill has nothing to record — say so and don't run the script at all (calling it with an id absent from the matrix raises `KeyError`). Check the matrix first; the example id below is illustrative of a class that does carry a §3.12 row.
+
 ```bash
 cd <this-plugin's-install-path>/skills/traceability/scripts
 python3 -c "
