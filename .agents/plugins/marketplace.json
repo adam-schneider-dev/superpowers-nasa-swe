@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "superpowers",
+      "name": "superpowers-nasa-swe",
       "source": {
         "source": "url",
         "url": "./"

@@ -1,6 +1,6 @@
 {
-  "name": "superpowers",
-  "version": "6.2.0",
+  "name": "superpowers-nasa-swe",
+  "version": "0.1.0",
   "description": "Superpowers skills and runtime bootstrap for coding agents",
   "type": "module",
   "main": ".opencode/plugins/superpowers.js",
