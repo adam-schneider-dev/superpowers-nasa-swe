@@ -1,0 +1,296 @@
+# SWE Catalog — NPR 7150.2D Appendix C, Requirements Mapping Matrix
+# Coverage: pages 70-78 (sections 4.2 through 5.5). See CATALOG-COVERAGE.md.
+- section: "4.2.3"
+  swe_id: "SWE-057"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.2.4"
+  swe_id: "SWE-143"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.3.2"
+  swe_id: "SWE-058"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.4.2"
+  swe_id: "SWE-060"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.4.3"
+  swe_id: "SWE-061"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.4.4"
+  swe_id: "SWE-135"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.4.5"
+  swe_id: "SWE-062"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.4.6"
+  swe_id: "SWE-186"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.4.7"
+  swe_id: "SWE-063"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.4.8"
+  swe_id: "SWE-136"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.5.2"
+  swe_id: "SWE-065"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.3"
+  swe_id: "SWE-066"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.4"
+  swe_id: "SWE-187"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.5"
+  swe_id: "SWE-068"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.6"
+  swe_id: "SWE-070"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.5.7"
+  swe_id: "SWE-071"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.8"
+  swe_id: "SWE-073"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.5.9"
+  swe_id: "SWE-189"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.5.10"
+  swe_id: "SWE-190"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.5.11"
+  swe_id: "SWE-191"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.12"
+  swe_id: "SWE-192"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.5.13"
+  swe_id: "SWE-193"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.5.14"
+  swe_id: "SWE-211"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "4.6.2"
+  swe_id: "SWE-075"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.6.3"
+  swe_id: "SWE-077"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.6.4"
+  swe_id: "SWE-194"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.6.5"
+  swe_id: "SWE-195"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "4.6.6"
+  swe_id: "SWE-196"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.2"
+  swe_id: "SWE-079"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.3"
+  swe_id: "SWE-080"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.4"
+  swe_id: "SWE-081"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.5"
+  swe_id: "SWE-082"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.6"
+  swe_id: "SWE-083"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.7"
+  swe_id: "SWE-084"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.8"
+  swe_id: "SWE-085"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.1.9"
+  swe_id: "SWE-045"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.2"
+  swe_id: "SWE-086"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.3.2"
+  swe_id: "SWE-087"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.3.3"
+  swe_id: "SWE-088"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.3.4"
+  swe_id: "SWE-089"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.4.2"
+  swe_id: "SWE-090"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.4.3"
+  swe_id: "SWE-093"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.4.4"
+  swe_id: "SWE-094"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.4.5"
+  swe_id: "SWE-199"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.4.6"
+  swe_id: "SWE-200"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.5.1"
+  swe_id: "SWE-201"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.5.2"
+  swe_id: "SWE-202"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: "CIO"
+  ta_required: true
+- section: "5.5.3"
+  swe_id: "SWE-203"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
+- section: "5.5.4"
+  swe_id: "SWE-204"
+  responsible_role: "Center"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  technical_authority: null
+  ta_required: false
