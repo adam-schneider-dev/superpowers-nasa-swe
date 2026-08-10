@@ -17,7 +17,9 @@ Ask first: is this a single system, or does the project contain subsystems that 
 
 ## The interview
 
-Ask about each class in order, using the *exact* criteria below (from Appendix D). Stop at the first "yes" — but keep asking through Class E even after an earlier "yes", so the tool can detect and flag ambiguity (more than one class's criteria matching is a real signal, not noise).
+Ask about each class in order, using the criteria below — **paraphrased and condensed from Appendix D, not verbatim**. Consult `<this plugin's install path>/reference/NPR_7150.2D.pdf`, Appendix D, for the authoritative wording, and do so before recording any classification a user intends to rely on or defend. Where a paraphrase below and the PDF disagree, the PDF governs.
+
+The first "yes" determines the class — but keep asking through Class E even after an earlier "yes", so the tool can detect and flag ambiguity (more than one class's criteria matching is a real signal, not noise).
 
 1. **Class A — Human Rated Space Software Systems.** Does the software: operate a vehicle/space asset including commanding it, OR sustain a safe habitable environment for crew, OR directly achieve primary human-spaceflight mission objectives, OR directly prepare resources (data/fuel/power) consumed by those functions? Exclude software that's merely incidental to the mission (e.g., personal media on a crew device), aeronautics-only R&T software with no space-flight application, and simulator/test-environment software.
 
@@ -54,7 +56,7 @@ print(json.dumps(result, indent=2))
 "
 ```
 
-If `result[\"ambiguous\"]` is `true`, **do not silently accept the first candidate** — tell the user which classes matched (`result["candidates"]`) and ask them to confirm or override, per NPR 7150.2D Appendix D.2.
+If `result["ambiguous"]` is `true`, **do not silently accept the first candidate** — tell the user which classes matched (`result["candidates"]`) and ask them to confirm or override, per NPR 7150.2D Appendix D.2.
 
 ## Writing the output
 
