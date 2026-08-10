@@ -43,23 +43,27 @@ result = amend_safety_critical(
     classification,
     is_safety_critical=<True/False from the determination above>,
     rationale='<one paragraph citing which of a-e matched, or why none did>',
-    date='<today, YYYY-MM-DD>',
 )
 print(yaml.dump(result, sort_keys=False))
 "
 ```
 
-If the script raises `ValueError` mentioning "conflicting", **stop and surface it to the user** rather than re-running with a different answer to make it pass — a prior run already recorded a rationale-backed determination that disagrees, and the disagreement itself needs a human decision, not code that papers over it.
+If the script raises `ValueError` mentioning "conflicting", **stop and surface it to the user** rather than re-running with a different answer to make it pass — either a prior run or `classify-software`'s original determination already recorded a class-changing answer that disagrees, and the disagreement itself needs a human decision, not code that papers over it.
 
 ## Writing the output
 
 Overwrite `docs/nasa-compliance/<subsystem>/classification.yaml` with the printed YAML. If `class` changed as a result (e.g. Class E → D), tell the user the Requirements Mapping Matrix is now stale and they should re-run `requirements-matrix` to regenerate it.
 
+**Warn the user before they regenerate:** regeneration rewrites the matrix from the catalog and **resets every row's status to `not-started`**, with `evidence` and `date` cleared — there is no merge with the existing file, so anything already recorded (`satisfied` rows, `tailored-out` rows, evidence pointers) is lost. `tailoring-log.md` is *not* touched by regeneration, so a regenerated matrix can end up disagreeing with the tailoring log it is supposed to match. Tell the user to note down every already-recorded row first (id, status, evidence, date) and re-apply them after regenerating, because nothing preserves them automatically. Each regenerated row carries a `software_class` stamp, which is how a stale matrix can be spotted later — compare it against `classification.yaml`'s `class`.
+
 ## Marking the matrix row
+
+Do this **after** any regeneration above — marking a row in a matrix that is about to be discarded accomplishes nothing.
 
 Run `mark_matrix_satisfied` against the subsystem's `requirements-mapping-matrix.yaml` for `SWE-205` (§3.7.1, the determination requirement itself):
 
 ```bash
+cd <this-plugin's-install-path>/skills/safety-critical-determination/scripts
 python3 -c "
 from amend_safety_critical import mark_matrix_satisfied
 
@@ -67,10 +71,9 @@ mark_matrix_satisfied(
     matrix_yaml_path='<path to the subsystem's requirements-mapping-matrix.yaml>',
     swe_id='SWE-205',
     evidence='<pointer to this run's rationale in classification.yaml>',
-    date='<today, YYYY-MM-DD>',
 )
 print('Recorded.')
 "
 ```
 
-If `SWE-205` isn't present in the matrix (catalog gap, or the matrix predates the class change), tell the user rather than silently skipping it.
+If `SWE-205` isn't present in the matrix, work out which of three cases applies before reporting it: the subsystem's class genuinely has no §3.7.1 row (Appendix C does not invoke `SWE-205` on every class — for such a class this is correct behaviour, not a gap, and safety-critical determination via `SWE-205` simply isn't tracked there); the matrix predates a class change and needs regenerating; or the catalog is missing the row. Tell the user which one it is rather than silently skipping it — and don't send a user whose class has no §3.7.1 row hunting for a bug that isn't there.

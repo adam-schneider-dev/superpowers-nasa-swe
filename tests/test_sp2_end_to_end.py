@@ -65,7 +65,7 @@ def test_full_pipeline_for_a_class_e_subsystem_found_safety_critical(tmp_path):
         loaded_classification = yaml.safe_load(f)
     amended = amend_safety_critical(
         loaded_classification, is_safety_critical=True,
-        rationale="Controls a function identified in a system hazard.", date="2026-08-11",
+        rationale="Controls a function identified in a system hazard.",
     )
     assert amended["class"] == "D"
     with open(classification_path, "w") as f:
@@ -73,7 +73,7 @@ def test_full_pipeline_for_a_class_e_subsystem_found_safety_critical(tmp_path):
 
     swe_205_row = next((r for r in status_rows if r["swe_id"] == "SWE-205"), None)
     if swe_205_row is not None:
-        mark_matrix_satisfied(str(matrix_yaml_path), "SWE-205", evidence="classification.yaml safety_critical_history[-1]", date="2026-08-11")
+        mark_matrix_satisfied(str(matrix_yaml_path), "SWE-205", evidence="classification.yaml safety_critical_history[-1]")
         with open(matrix_yaml_path) as f:
             updated = yaml.safe_load(f)
         assert next(r for r in updated if r["swe_id"] == "SWE-205")["status"] == "satisfied"
