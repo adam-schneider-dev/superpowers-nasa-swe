@@ -16,6 +16,13 @@ def record_sa_ivv_coordination(matrix_yaml_path, record_md_path, swe_ids, fields
     if missing:
         raise KeyError(f"unknown swe_id(s) in requirements mapping matrix: {', '.join(missing)}")
 
+    for swe_id in swe_ids:
+        if row_by_id[swe_id]["status"] == "tailored-out":
+            raise ValueError(
+                f"{swe_id} is already tailored-out — see tailoring-log.md; do not mark it "
+                f"satisfied without first reviewing/reversing that tailoring entry"
+            )
+
     today = datetime.date.today().isoformat()
     for swe_id in swe_ids:
         row_by_id[swe_id]["status"] = "satisfied"

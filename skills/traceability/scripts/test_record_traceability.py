@@ -66,3 +66,18 @@ def test_appends_to_existing_record(tmp_path):
 
     content = record_path.read_text()
     assert content.count("## Recorded") == 2
+
+
+def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
+    matrix_path = tmp_path / "requirements-mapping-matrix.yaml"
+    record_path = tmp_path / "traceability.md"
+    rows = sample_rows()
+    rows[0]["status"] = "tailored-out"
+    write_matrix(matrix_path, rows)
+
+    with pytest.raises(ValueError, match="tailored-out"):
+        record_traceability(str(matrix_path), str(record_path), swe_ids=["SWE-052"], fields={"mechanism": "a"}, evidence="ev")
+
+    with open(matrix_path) as f:
+        unchanged = yaml.safe_load(f)
+    assert next(r for r in unchanged if r["swe_id"] == "SWE-052")["status"] == "tailored-out"
