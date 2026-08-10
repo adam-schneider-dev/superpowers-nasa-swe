@@ -1,7 +1,7 @@
 {
-  "name": "superpowers",
-  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
-  "version": "6.2.0",
+  "name": "superpowers-nasa-swe",
+  "description": "NASA NPR 7150.2D / NASA-STD-8739.8B software engineering compliance layer, forked from Superpowers",
+  "version": "0.1.0",
   "author": {
     "name": "Jesse Vincent",
     "email": "jesse@fsck.com"
@@ -11,10 +11,10 @@
   "license": "MIT",
   "keywords": [
     "skills",
-    "tdd",
-    "debugging",
-    "collaboration",
-    "best-practices",
-    "workflows"
+    "nasa",
+    "npr-7150.2",
+    "nasa-std-8739.8",
+    "software-assurance",
+    "compliance"
   ]
 }
