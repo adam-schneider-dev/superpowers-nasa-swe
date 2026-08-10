@@ -2,6 +2,17 @@
 
 Superpowers is a complete software development methodology for your coding agents, built on top of a set of composable skills and some initial instructions that make sure your agent uses them.
 
+## NASA-SWE Compliance Layer
+
+This fork adds a NASA NPR 7150.2D / NASA-STD-8739.8B compliance layer on top of upstream Superpowers:
+
+- `classify-software` — determine a project or subsystem's NASA software class (A-F) per NPR 7150.2D Appendix D
+- `requirements-matrix` — generate a class-scoped Requirements Mapping Matrix per NPR 7150.2D Appendix C
+- `tailoring-request` — record NASA-style tailoring/request-for-relief entries for requirements that aren't fully implemented
+
+See `data/CATALOG-COVERAGE.md` for which parts of NPR 7150.2D Appendix C are currently represented in the bundled requirements catalog — this is a working draft, extended incrementally, not a certified reproduction of the standard. See `docs/superpowers/specs/2026-08-10-nasa-swe-foundation-design.md` for the design rationale and `docs/superpowers/plans/2026-08-10-nasa-swe-foundation.md` for how this layer was built.
+
+---
 
 ## Quickstart
 
