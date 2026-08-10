@@ -73,6 +73,14 @@ def test_render_status_yaml_defaults():
     assert all(r["evidence"] is None for r in status_rows)
     assert all(r["date"] is None for r in status_rows)
     assert {r["swe_id"] for r in status_rows} == {"SWE-053", "SWE-057", "SWE-204"}
+    # Every row records the class it was generated for, so staleness is checkable later.
+    assert all(r["software_class"] == "A" for r in status_rows)
+
+
+def test_render_status_yaml_stamps_the_class_it_was_generated_for():
+    rows = filter_rows_for_class(sample_rows(), "F")
+    status_rows = render_matrix_status_yaml(rows, "F")
+    assert all(r["software_class"] == "F" for r in status_rows)
 
 def test_render_status_yaml_carries_the_class_ae_authority_as_default_approver():
     rows = filter_rows_for_class(sample_rows(), "A")

@@ -50,11 +50,18 @@ def render_matrix_markdown(rows, subsystem, software_class):
 
 
 def render_matrix_status_yaml(rows, software_class):
+    """Fresh status rows for one class.
+
+    Every row is stamped with the `software_class` it was generated for. Regeneration resets
+    status/evidence/date, so the stamp is what lets a later caller tell a matrix that matches the
+    subsystem's current `classification.yaml` from one left over from a previous class.
+    """
     _check_class(software_class)
     return [
         {
             "swe_id": r["swe_id"],
             "section": r["section"],
+            "software_class": software_class,
             "default_approver": default_approver_for(r, software_class),
             "status": "not-started",
             "evidence": None,

@@ -25,7 +25,7 @@ Each row of `data/swe-catalog.yaml` mirrors one Appendix C row's structured colu
 | `swe_id` | SWE # |
 | `class_ae_authority` | Class A-E Authority — who approves tailoring for Classes A-E (e.g. `Center`) |
 | `classes` | the six per-class applicability columns; `true` where the source shows an `X` |
-| `class_f_authority` | Class F Authority — who approves tailoring for Class F (`CIO`), `null` where Class F is not invoked |
+| `class_f_authority` | Class F Authority — who approves tailoring for Class F (`CIO`), `null` where Class F is not invoked, plus one documented exception: §3.2.1/`SWE-015` carries a Class F mark but names no authority in the source standard, so it too reads `null` (see `data/CATALOG-COVERAGE.md`) |
 
 The two authority columns are distinct. Per NPR 7150.2D §2.1.5.4 the NASA CIO (or Center CIO designee) holds institutional authority on all Class F software projects, which is why `CIO` appears only alongside a Class F mark.
 
@@ -68,5 +68,5 @@ print(yaml.dump(status_rows, sort_keys=False))
 If the script exits with `CATALOG ERROR` lines, stop and report them — do not hand the user a matrix built from a catalog that failed validation.
 
 4. Write the printed markdown to `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.md` in the project being worked on.
-5. Write the printed status YAML to `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` in the same location. Each entry carries `swe_id`, `section`, `default_approver`, `status`, `evidence`, and `date`. `default_approver` is the authority resolved for this subsystem's class — the `class_f_authority` for Class F, the `class_ae_authority` otherwise — and it is what the `tailoring-request` skill offers as the default approving authority.
+5. Write the printed status YAML to `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` in the same location. Each entry carries `swe_id`, `section`, `software_class`, `default_approver`, `status`, `evidence`, and `date`. `software_class` is the class this matrix was generated for — compare it against `classification.yaml`'s `class` to tell whether a matrix is still current or was left over from a previous class. `default_approver` is the authority resolved for this subsystem's class — the `class_f_authority` for Class F, the `class_ae_authority` otherwise — and it is what the `tailoring-request` skill offers as the default approving authority.
 6. Tell the user how many requirements apply to their class and remind them the matrix only reflects the catalog's current coverage (per step 2).
