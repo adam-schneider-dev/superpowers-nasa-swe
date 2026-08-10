@@ -72,3 +72,55 @@ def test_appends_one_entry_per_component(tmp_path):
     assert content.count("## Recorded") == 2
     assert "libfoo" in content
     assert "libbar" in content
+
+
+def test_marks_swe_027_satisfied_for_an_incoming_component(tmp_path):
+    """Part 2 of the skill (§3.1.14/SWE-027) records suitability of an INCOMING component."""
+    matrix_path = tmp_path / "requirements-mapping-matrix.yaml"
+    record_path = tmp_path / "reuse-assessment.md"
+    write_matrix(matrix_path, sample_rows() + [
+        {"swe_id": "SWE-027", "section": "3.1.14", "default_approver": "Center", "status": "not-started", "evidence": None, "date": None},
+    ])
+
+    record_reuse_assessment(
+        str(matrix_path), str(record_path),
+        swe_ids=["SWE-027"],
+        fields={
+            "component_name": "libfoo-parser",
+            "requirements_identified": "REQ-014, REQ-015 — XML ingest",
+            "documentation": "vendor/libfoo/docs/usage.md",
+            "ip_rights_coordination": "MIT license reviewed with Center IP Counsel 2026-07-02",
+            "future_support_plan": "Vendor LTS through 2030; fork mirrored internally",
+            "verification_validation_level": "Same unit/integration suite as in-house parsers",
+            "vendor_defect_assessment_plan": "Quarterly review of vendor CVE/defect feed",
+        },
+        evidence="docs/reuse/libfoo-suitability.md",
+    )
+
+    with open(matrix_path) as f:
+        updated = yaml.safe_load(f)
+    swe_027 = next(r for r in updated if r["swe_id"] == "SWE-027")
+    assert swe_027["status"] == "satisfied"
+    assert swe_027["evidence"] == "docs/reuse/libfoo-suitability.md"
+    assert swe_027["date"] is not None
+    # The outbound-contribution rows are untouched by an incoming-component assessment.
+    assert next(r for r in updated if r["swe_id"] == "SWE-147")["status"] == "not-started"
+
+    content = record_path.read_text()
+    assert "SWE-027" in content
+    assert "Center IP Counsel" in content
+
+
+def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
+    matrix_path = tmp_path / "requirements-mapping-matrix.yaml"
+    record_path = tmp_path / "reuse-assessment.md"
+    rows = sample_rows()
+    rows[0]["status"] = "tailored-out"
+    write_matrix(matrix_path, rows)
+
+    with pytest.raises(ValueError, match="tailored-out"):
+        record_reuse_assessment(str(matrix_path), str(record_path), swe_ids=["SWE-147"], fields={"component_name": "c"}, evidence="ev")
+
+    with open(matrix_path) as f:
+        unchanged = yaml.safe_load(f)
+    assert next(r for r in unchanged if r["swe_id"] == "SWE-147")["status"] == "tailored-out"
