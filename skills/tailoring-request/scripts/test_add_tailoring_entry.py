@@ -7,9 +7,13 @@ def write_matrix(path, rows):
         yaml.dump(rows, f)
 
 def sample_rows():
+    # Same shape render_matrix_status_yaml emits, including the default_approver
+    # field the tailoring-request skill offers as the default approving authority.
     return [
-        {"swe_id": "SWE-057", "section": "4.2.3", "status": "not-started", "evidence": None, "date": None},
-        {"swe_id": "SWE-058", "section": "4.3.2", "status": "not-started", "evidence": None, "date": None},
+        {"swe_id": "SWE-057", "section": "4.2.3", "default_approver": "Center",
+         "status": "not-started", "evidence": None, "date": None},
+        {"swe_id": "SWE-058", "section": "4.3.2", "default_approver": "Center",
+         "status": "not-started", "evidence": None, "date": None},
     ]
 
 def test_blocks_without_approver(tmp_path):

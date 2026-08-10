@@ -14,7 +14,9 @@ Implements the tailoring principles from NPR 7150.2D Chapter 2 and NASA-STD-8739
 ## Steps
 
 1. Ask which SWE-id (from the subsystem's `requirements-mapping-matrix.yaml`) is being tailored, and confirm it's actually present in that file — if you're not sure, look it up rather than guessing the id.
-2. Ask for, in the user's own words: rationale (why this doesn't apply or can't be met as written), risk (what could go wrong if this is skipped), mitigation (what reduces that risk), and approver (a named person or role — the matrix row's `technical_authority` field is the default suggestion, from `filter_matrix.py`'s output, but the user may name someone else).
+2. Ask for, in the user's own words: rationale (why this doesn't apply or can't be met as written), risk (what could go wrong if this is skipped), mitigation (what reduces that risk), and approver (a named person or role).
+
+   For the approver, offer the row's `default_approver` field from `requirements-mapping-matrix.yaml` as the default suggestion. The `requirements-matrix` skill writes that field when it generates the file: it is the Appendix C authority resolved for the subsystem's class — `CIO` for Class F (NPR 7150.2D §2.1.5.4 gives the NASA/Center CIO institutional authority over all Class F software), the Class A-E authority (typically `Center`) otherwise. If the file predates that field, regenerate it with `requirements-matrix` rather than reading the catalog by hand. The user may always name someone else instead.
 3. If the user has no approver to name, stop — do not record an entry without one. Explain that NPR 7150.2D 2.1.5.4's note requires tailoring to be approved and recorded with rationale, not simply asserted.
 4. Run:
 
