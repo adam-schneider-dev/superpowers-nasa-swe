@@ -28,25 +28,37 @@ def test_bundled_catalog_is_valid():
 
 
 def test_bundled_catalog_row_count_matches_documented_coverage():
-    assert len(load_catalog()) == 49
+    assert len(load_catalog()) == 94
 
 
-def test_every_class_a_through_d_and_f_has_rows():
+def test_every_class_a_through_f_has_rows():
     catalog = load_catalog()
-    for software_class in ("A", "B", "C", "D", "F"):
+    for software_class in ("A", "B", "C", "D", "E", "F"):
         assert filter_rows_for_class(catalog, software_class), (
             f"expected Class {software_class} rows in the bundled catalog slice"
         )
 
 
-def test_class_e_is_empty_because_of_the_documented_coverage_gap():
-    """Every Class E mark in Appendix C sits in Chapter 3, which is not yet transcribed.
+def test_class_e_has_exactly_the_documented_row_count():
+    """All 12 of Appendix C's Class E marks sit in Chapter 3 (data/CATALOG-COVERAGE.md).
 
-    This is a coverage gap, not an authoritative "no requirements apply" — see
-    data/CATALOG-COVERAGE.md. If Chapter 3 is ever added, this test should be
-    replaced with a positive assertion rather than deleted.
+    An exact count, not just non-empty, so a future partial edit to Chapter 3's
+    rows that drops a Class E mark fails loudly instead of silently passing a
+    weaker "at least one" check.
     """
-    assert filter_rows_for_class(load_catalog(), "E") == []
+    assert len(filter_rows_for_class(load_catalog(), "E")) == 12
+
+
+def test_swe_015_f_mark_has_no_named_authority():
+    """§3.2.1/SWE-015 carries a Class F mark with a blank Class F Authority cell
+    in the source standard itself — not a transcription error. See
+    data/CATALOG-COVERAGE.md and skills/tailoring-request/SKILL.md's handling
+    of a null default_approver.
+    """
+    catalog = load_catalog()
+    row = next(r for r in catalog if r["swe_id"] == "SWE-015")
+    assert row["classes"]["F"] is True
+    assert row["class_f_authority"] is None
 
 
 def test_class_f_authority_is_only_named_where_class_f_applies():

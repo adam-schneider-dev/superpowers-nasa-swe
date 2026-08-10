@@ -1,13 +1,245 @@
 # SWE Catalog — NPR 7150.2D Appendix C, Requirements Mapping Matrix
-# Coverage: Appendix C pages 70-78, sections 4.2 through 5.5 (49 of the appendix's 100 rows).
-# See CATALOG-COVERAGE.md for the gap.
+# Coverage: Appendix C pages 56-78, sections 3.1 through 5.5 (94 of the appendix's 100 rows).
+# See CATALOG-COVERAGE.md for the gap (§4.1 only).
 #
 # Column semantics, per Appendix C's table header:
 #   class_ae_authority — the "Class A-E Authority" column (tailoring approval authority for Classes A-E)
 #   classes            — the six per-class applicability columns ("X" = invoked, blank = not invoked)
 #   class_f_authority  — the "Class F Authority" column; per NPR 7150.2D §2.1.5.4 the NASA/Center CIO
 #                        holds institutional authority on all Class F software projects, so this reads
-#                        "CIO" exactly where the Class F column is marked, and null where it is not.
+#                        "CIO" wherever Appendix C names an authority, and null where the cell is
+#                        blank. The cell is blank on every row without a Class F mark, and also on
+#                        §3.2.1/SWE-015, which carries a Class F mark with no named authority — that
+#                        blank is in the source standard, not a transcription slip. See
+#                        CATALOG-COVERAGE.md.
+#
+# Rows are in Appendix C order. The Class A-E Authority column is transcribed verbatim, including
+# the multi-line values ("Center and Center CIO", "HQ OCE and HQ OSMA").
+- section: "3.1.2"
+  swe_id: "SWE-033"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.3"
+  swe_id: "SWE-013"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.4"
+  swe_id: "SWE-024"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.5"
+  swe_id: "SWE-034"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.6"
+  swe_id: "SWE-036"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.7"
+  swe_id: "SWE-037"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.8"
+  swe_id: "SWE-039"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.9"
+  swe_id: "SWE-040"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.10"
+  swe_id: "SWE-042"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.11"
+  swe_id: "SWE-139"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.12"
+  swe_id: "SWE-121"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.13"
+  swe_id: "SWE-125"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.1.14"
+  swe_id: "SWE-027"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.2.1"
+  swe_id: "SWE-015"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: null
+- section: "3.2.2"
+  swe_id: "SWE-151"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.2.3"
+  swe_id: "SWE-174"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.3.1"
+  swe_id: "SWE-016"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.3.2"
+  swe_id: "SWE-018"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.3.3"
+  swe_id: "SWE-046"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.4.1"
+  swe_id: "SWE-017"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.5.1"
+  swe_id: "SWE-020"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.5.2"
+  swe_id: "SWE-176"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.6.1"
+  swe_id: "SWE-022"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: false}
+  class_f_authority: null
+- section: "3.6.2"
+  swe_id: "SWE-141"
+  class_ae_authority: "HQ OSMA"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "3.6.3"
+  swe_id: "SWE-131"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "3.6.4"
+  swe_id: "SWE-178"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "3.6.5"
+  swe_id: "SWE-179"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "3.7.1"
+  swe_id: "SWE-205"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: false}
+  class_f_authority: null
+- section: "3.7.2"
+  swe_id: "SWE-023"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.7.3"
+  swe_id: "SWE-134"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.7.4"
+  swe_id: "SWE-219"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.7.5"
+  swe_id: "SWE-220"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.8.1"
+  swe_id: "SWE-146"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.8.2"
+  swe_id: "SWE-206"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.9.2"
+  swe_id: "SWE-032"
+  class_ae_authority: "HQ OCE and HQ OSMA"
+  classes: {A: true, B: true, C: false, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "3.10.1"
+  swe_id: "SWE-147"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.10.2"
+  swe_id: "SWE-148"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.11.2"
+  swe_id: "SWE-156"
+  class_ae_authority: "Center and Center CIO"
+  classes: {A: true, B: true, C: true, D: true, E: true, F: true}
+  class_f_authority: "CIO"
+- section: "3.11.3"
+  swe_id: "SWE-154"
+  class_ae_authority: "Center and Center CIO"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.11.4"
+  swe_id: "SWE-157"
+  class_ae_authority: "Center and Center CIO"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.11.5"
+  swe_id: "SWE-159"
+  class_ae_authority: "Center and Center CIO"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.11.6"
+  swe_id: "SWE-207"
+  class_ae_authority: "Center and Center CIO"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: false}
+  class_f_authority: null
+- section: "3.11.7"
+  swe_id: "SWE-185"
+  class_ae_authority: "Center and Center CIO"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.11.8"
+  swe_id: "SWE-210"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "3.12.1"
+  swe_id: "SWE-052"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
 - section: "4.2.3"
   swe_id: "SWE-057"
   class_ae_authority: "Center"
