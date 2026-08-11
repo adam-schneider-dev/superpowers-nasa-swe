@@ -17,7 +17,7 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## The interview
 
-1. **Design description (§4.3.2, SWE-058).** Point to the software design document, based on the architecture, that describes the lower-level units down to a level where they can be coded, compiled, and tested. If it doesn't exist yet, say so.
+1. **Design description (§4.3.2, SWE-058).** Where's the design that breaks the architecture down further — to the level of individual units a developer could actually sit down and code, compile, and test? If that document doesn't exist yet, say so rather than pointing at the architecture doc again.
 
 ## Running the script
 

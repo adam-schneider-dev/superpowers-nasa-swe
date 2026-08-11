@@ -17,13 +17,13 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## The interview
 
-1. **Implementation (§4.4.2, SWE-060).** Point to evidence the software design was implemented into code (e.g. the traceability matrix linking design units to source).
-2. **Coding standards (§4.4.3, SWE-061).** What coding methods, standards, and criteria were selected, and how is adherence checked?
-3. **Static analysis (§4.4.4, SWE-135).** What static analysis tools ran during development/testing? Confirm they cover, at minimum, defects, software security, code coverage, and complexity.
-4. **Unit testing (§4.4.5, SWE-062).** Point to evidence the code was unit tested.
-5. **Repeatable unit tests (§4.4.6, SWE-186).** How is it assured that unit test results are repeatable (e.g. deterministic test environment, pinned dependencies, CI reruns)?
-6. **Version description (§4.4.7, SWE-063).** Point to the software version description for this release.
-7. **Tool validation (§4.4.8, SWE-136).** How were the software tool(s) used to develop or maintain the software validated and accredited for that use?
+1. **Implementation (§4.4.2, SWE-060).** How do you know the code in the repository actually reflects the design — is there a traceability link, a code review sign-off, something else? Point to whatever ties implementation back to design.
+2. **Coding standards (§4.4.3, SWE-061).** What style guide or coding standard governs this codebase, and how is conformance actually checked — linting, a review checklist, something automated?
+3. **Static analysis (§4.4.4, SWE-135).** Which static analysis tooling runs against this code, and does it give visibility into all four of: general defects, security issues, code coverage, and code complexity? Name the tool(s) and what each one catches.
+4. **Unit testing (§4.4.5, SWE-062).** Point to the unit test suite (or its results) that exercises this code at the function/module level.
+5. **Repeatable unit tests (§4.4.6, SWE-186).** If you ran the unit test suite again right now, would you get the same pass/fail outcome? What makes that true — a pinned environment, deterministic fixtures, something else?
+6. **Version description (§4.4.7, SWE-063).** For this release, where's the document that says exactly what's in it — version number, what changed, known issues?
+7. **Tool validation (§4.4.8, SWE-136).** For the tools used to build or maintain this software (compiler, build system, etc.), how was each one checked to confirm it's fit for that purpose before being relied on?
 
 If any answer doesn't exist yet as a real artifact, tell the user and leave that SWE-id out of `swe_ids` below.
 

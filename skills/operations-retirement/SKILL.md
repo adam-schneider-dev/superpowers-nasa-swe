@@ -17,11 +17,11 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## The interview
 
-1. **Ops/maintenance/retirement plan (§4.6.2, SWE-075).** Point to the plan for software operations, maintenance, and retirement activities.
-2. **Delivery records (§4.6.3, SWE-077).** Point to the as-built and other appropriate records delivered with the software product to support its operations and maintenance phase.
-3. **Pre-delivery verification (§4.6.4, SWE-194).** Confirm, for this delivery: all identified software requirements have been met or dispositioned, all approved changes have been implemented, and all defects designated for pre-delivery resolution have been resolved. Point to the record of that verification.
-4. **Maintenance standards (§4.6.5, SWE-195).** What standards and processes — per the subsystem's applicable software classification — govern maintenance throughout the maintenance phase?
-5. **Archival planning (§4.6.6, SWE-196).** Point to the identified records and software tools to be archived, the archive's location, and the procedures for accessing the products for retirement or disposal.
+1. **Ops/maintenance/retirement plan (§4.6.2, SWE-075).** Where's the plan that covers what happens to this software after release — how it'll be run day to day, kept up, and eventually taken out of service?
+2. **Delivery records (§4.6.3, SWE-077).** What gets handed to the customer alongside the software itself — as-built documentation and anything else needed to run and maintain it going forward? Point to those records.
+3. **Pre-delivery verification (§4.6.4, SWE-194).** Right before this goes out the door, has someone actually checked off: every requirement in scope for this release is either done or explicitly waived, every approved change actually made it into the build, and nothing on the must-fix-before-ship defect list is still open? Point to that sign-off.
+4. **Maintenance standards (§4.6.5, SWE-195).** Once this moves into the maintenance phase, what rules govern how changes get made — and do they match the rigor expected for this subsystem's declared class?
+5. **Archival planning (§4.6.6, SWE-196).** When this software is eventually retired, what gets kept, where does it live, and how would someone get access to it later? Cover both the records and any tools needed to actually use them.
 
 If any answer doesn't exist yet as a real artifact, tell the user and leave that SWE-id out of `swe_ids` below.
 

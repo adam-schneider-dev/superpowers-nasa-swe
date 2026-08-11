@@ -17,19 +17,19 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## The interview
 
-1. **Test artifacts (§4.5.2, SWE-065).** Point to the software test plan(s), test procedure(s), test(s) — including any code written specifically to perform test procedures — and test report(s).
-2. **Requirements testing (§4.5.3, SWE-066).** Point to evidence the software was tested against its requirements.
-3. **Configuration management before test (§4.5.4, SWE-187).** Were software items placed under configuration management prior to testing?
-4. **Test evaluation (§4.5.5, SWE-068).** Point to the recorded evaluation of test results.
-5. **Qualification tooling (§4.5.6, SWE-070).** If this subsystem involves flight software or flight equipment qualification, were validated and accredited models, simulations, and analysis tools used? If not applicable, record that explicitly.
-6. **Plan/procedure currency (§4.5.7, SWE-071).** Were the test and verification plan(s)/procedure(s) updated to stay consistent with the current software requirements?
-7. **Platform validation (§4.5.8, SWE-073).** Point to evidence the software system was validated on the targeted platform or a high-fidelity simulation.
-8. **Code coverage program (§4.5.9, SWE-189).** How are code coverage measurements selected, implemented, tracked, recorded, and reported?
-9. **Code coverage verification (§4.5.10, SWE-190).** How is code coverage verified by analysis of the results of test execution?
-10. **Regression testing (§4.5.11, SWE-191).** Point to the regression testing plan/results demonstrating that defects have not been introduced into previously integrated/tested software and no security vulnerability was produced.
-11. **Hazard-traced tests (§4.5.12, SWE-192).** Point to test evidence for any software requirements that trace to a hazardous event, cause, or mitigation technique. If none trace to a hazard, record that explicitly.
-12. **Loaded/uplinked-data acceptance tests (§4.5.13, SWE-193).** If the software accepts loaded or uplinked data, rules, or code that affects software/system behavior, point to the acceptance tests developed for it. If not applicable, record that explicitly.
-13. **Reused-component testing (§4.5.14, SWE-211).** If embedded COTS/GOTS/MOTS/OSS/reused components exist, were they tested to the same level required to accept a custom-developed component for its intended use? If there are none, record that explicitly.
+1. **Test artifacts (§4.5.2, SWE-065).** Point to the four testing artifacts: the plan that lays out the overall test approach, the step-by-step procedures, the tests themselves (including any harness code written just to run them), and the report(s) summarizing outcomes.
+2. **Requirements testing (§4.5.3, SWE-066).** Show the evidence tying test execution back to the requirements — how do you know every requirement got exercised by at least one test?
+3. **Configuration management before test (§4.5.4, SWE-187).** Before testing began, was the exact version of the software under test placed under configuration management, so the test results are tied to a known, reproducible baseline?
+4. **Test evaluation (§4.5.5, SWE-068).** After the tests ran, who looked at the results and judged pass/fail, and where's that judgment written down?
+5. **Qualification tooling (§4.5.6, SWE-070).** If this subsystem is qualifying flight software or flight hardware, were the simulation/modeling/analysis tools used for that qualification themselves checked out and approved beforehand? If flight qualification isn't in scope here, say so.
+6. **Plan/procedure currency (§4.5.7, SWE-071).** Have the test plan and procedures been kept in sync as the requirements changed, or could they be testing against an outdated version of what's required?
+7. **Platform validation (§4.5.8, SWE-073).** Was this software actually run and validated on the real target hardware/platform, or on a simulation close enough to count? Point to that validation.
+8. **Code coverage program (§4.5.9, SWE-189).** Walk through the code-coverage practice end to end: what coverage metric was picked, how is it collected, and where does the number get logged and reported?
+9. **Code coverage verification (§4.5.10, SWE-190).** How do you confirm the coverage number is actually derived from real test runs, rather than an estimate or a stale figure?
+10. **Regression testing (§4.5.11, SWE-191).** What's the regression-testing evidence that shows previously-working functionality is still working, and that nothing newly introduced opened up a security hole?
+11. **Hazard-traced tests (§4.5.12, SWE-192).** For any requirement that exists because of a known hazard (its cause, or a mitigation for it), point to the test that actually exercises it. If nothing in scope here traces to a hazard, say so explicitly.
+12. **Loaded/uplinked-data acceptance tests (§4.5.13, SWE-193).** If this software can be reconfigured after deployment by loading or uplinking new data, rules, or code that changes its behavior, point to the acceptance tests written for that update path. If there's no such path, say so.
+13. **Reused-component testing (§4.5.14, SWE-211).** For any COTS, GOTS, MOTS, open-source, or otherwise reused piece embedded in this software, was it put through the same testing rigor you'd demand of a custom-built equivalent doing the same job? If nothing here is reused, say so.
 
 If any answer doesn't exist yet as a real artifact, tell the user and leave that SWE-id out of `swe_ids` below. Where a row genuinely doesn't apply (e.g. no reused components, no hazard-traced requirements), still record the explicit non-applicability determination rather than leaving the row silently `not-started`.
 

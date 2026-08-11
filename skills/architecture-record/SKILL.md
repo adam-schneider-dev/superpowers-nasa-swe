@@ -17,8 +17,8 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## The interview
 
-1. **Architecture description (§4.2.3, SWE-057).** Point to the recorded software architecture the requirements were transformed into. If it doesn't exist yet, say so.
-2. **Architecture review (§4.2.4, SWE-143).** Is this a Category 1 project per NPR 7120.5, or a Category 2 project with Class A or B payload risk per NPR 8705.4? If yes, point to the software architecture review performed. If neither applies, record that this row doesn't apply to this subsystem rather than fabricating a review.
+1. **Architecture description (§4.2.3, SWE-057).** Where does the architecture live that shows how these requirements got turned into a structure — the major pieces, how they fit together, and why that shape was chosen? If it hasn't been written down yet, say so.
+2. **Architecture review (§4.2.4, SWE-143).** Check the project's category under NPR 7120.5 and its payload risk class under NPR 8705.4 — does either combination (Category 1, or Category 2 with a Class A/B payload) put this subsystem in scope for a formal architecture review? If so, point to that review; if not, record that it doesn't apply rather than inventing one.
 
 ## Running the script
 

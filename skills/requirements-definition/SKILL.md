@@ -17,12 +17,12 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 ## The interview
 
-1. **Requirements capture (§4.1.2, SWE-050).** How are software requirements established, captured, recorded, approved, and maintained as part of the technical specification? If any requirements cover COTS/GOTS/MOTS/OSS/reused components, say so.
-2. **Requirements analysis (§4.1.3, SWE-051).** Point to the requirements analysis performed — based on flowed-down/derived requirements from top-level systems engineering requirements, safety and reliability analyses, and hardware specifications/design.
-3. **Safety-related constraints (§4.1.4, SWE-184).** Are software-related safety constraints, controls, mitigations, and assumptions between hardware, operator, and software documented in the requirements? Point to where.
-4. **Requirements change tracking (§4.1.5, SWE-053).** How are changes to software requirements tracked and managed?
-5. **Inconsistency tracking (§4.1.6, SWE-054).** How are inconsistencies among requirements, project plans, and software products identified, corrective-actioned, and tracked to closure?
-6. **Requirements validation (§4.1.7, SWE-055).** How was requirements validation performed to confirm the software will perform as intended in the customer environment?
+1. **Requirements capture (§4.1.2, SWE-050).** How does this subsystem capture and baseline its software requirements — where are they written down, who signs off on them, and what document holds the final baselined set? If any requirement covers a COTS, GOTS, MOTS, open-source, or otherwise reused component, call that out specifically.
+2. **Requirements analysis (§4.1.3, SWE-051).** Point to the analysis behind these requirements — what upstream sources did they come from (system-level requirements, safety or reliability studies, the hardware design), and how was each software requirement traced back to one of those sources?
+3. **Safety-related constraints (§4.1.4, SWE-184).** Where the software shares safety responsibility with hardware or a human operator, is that boundary spelled out somewhere — what each side is relied on to do, any limits or safeguards assumed, and where that's written down?
+4. **Requirements change tracking (§4.1.5, SWE-053).** What's the mechanism for handling a requirements change after baseline — who proposes it, who approves it, and where does the history live?
+5. **Inconsistency tracking (§4.1.6, SWE-054).** When a mismatch turns up — say the requirements say one thing and the delivered code or a project plan says another — how does that get caught, logged, and driven to a resolution rather than just noticed and dropped?
+6. **Requirements validation (§4.1.7, SWE-055).** How do you know, independent of the requirements themselves, that this software will actually do what's needed once it's running in its real operating environment? Point to whatever check answered that question.
 
 If any answer doesn't exist yet as a real artifact, tell the user and leave that SWE-id out of `swe_ids` below rather than fabricating a pointer.
 
