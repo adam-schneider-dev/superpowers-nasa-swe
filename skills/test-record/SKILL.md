@@ -33,6 +33,8 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 
 If any answer doesn't exist yet as a real artifact, tell the user and leave that SWE-id out of `swe_ids` below. Where a row genuinely doesn't apply (e.g. no reused components, no hazard-traced requirements), still record the explicit non-applicability determination rather than leaving the row silently `not-started`.
 
+If the subsystem's class has no rows for §4.5 in the matrix, this skill has nothing to record — say so and don't run the script at all (calling it with an id absent from the matrix raises `KeyError`). Check the matrix first: Class E carries no §4.5 rows in Appendix C, so this skill has nothing to record for a Class E subsystem.
+
 ## Running the script
 
 ```bash

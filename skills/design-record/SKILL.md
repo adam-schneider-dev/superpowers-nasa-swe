@@ -7,7 +7,7 @@ description: Use to record a subsystem's NPR 7150.2D §4.3 software design, base
 
 ## Overview
 
-Records the software design description — based on the architecture, describing lower-level units so they can be coded, compiled, and tested. Does not author the design itself.
+Records the software design description — based on the architecture, capturing the breakdown into units small enough to implement, build, and verify. Does not author the design itself.
 
 **Announce at start:** "I'm using the design-record skill to record your NPR 7150.2D §4.3 software design compliance."
 
@@ -18,6 +18,8 @@ Requires `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` to 
 ## The interview
 
 1. **Design description (§4.3.2, SWE-058).** Where's the design that breaks the architecture down further — to the level of individual units a developer could actually sit down and code, compile, and test? If that document doesn't exist yet, say so rather than pointing at the architecture doc again.
+
+If the subsystem's class has no row for §4.3 in the matrix, this skill has nothing to record — say so and don't run the script at all (calling it with `SWE-058` when it's absent from the matrix raises `KeyError`). Check the matrix first: Classes D, E, and F carry no §4.3 row in Appendix C, so this skill has nothing to record for those subsystems.
 
 ## Running the script
 

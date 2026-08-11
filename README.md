@@ -22,7 +22,16 @@ This fork adds a NASA NPR 7150.2D / NASA-STD-8739.8B compliance layer on top of 
 - `cybersecurity-assessment` — record §3.11 cybersecurity risk categorization (does not perform RMF)
 - `traceability` — record §3.12 bi-directional traceability mechanism
 
-See `data/CATALOG-COVERAGE.md` for which parts of NPR 7150.2D Appendix C are currently represented in the bundled requirements catalog — this is a working draft, extended incrementally, not a certified reproduction of the standard. See `docs/superpowers/specs/` and `docs/superpowers/plans/` for the design rationale and build records of each sub-project.
+**Engineering Lifecycle (SP3), NPR 7150.2D Chapter 4:**
+
+- `requirements-definition` — record §4.1 software requirements definition, analysis, safety constraints, change tracking, and validation
+- `architecture-record` — record §4.2 software architecture description and review (where applicable)
+- `design-record` — record §4.3 software design description
+- `implementation-record` — record §4.4 implementation evidence: coding standards, static analysis, unit testing, version description, tool validation
+- `test-record` — record §4.5 software testing evidence across 13 rows
+- `operations-retirement` — record §4.6 operations, maintenance, and retirement planning and evidence
+
+See `data/CATALOG-COVERAGE.md` — the bundled requirements catalog now covers all 100 Appendix C rows, though it remains a working draft, not a certified reproduction of the standard. See `docs/superpowers/specs/` and `docs/superpowers/plans/` for the design rationale and build records of each sub-project.
 
 ---
 
