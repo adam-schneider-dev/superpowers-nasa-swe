@@ -28,7 +28,7 @@ def test_bundled_catalog_is_valid():
 
 
 def test_bundled_catalog_row_count_matches_documented_coverage():
-    assert len(load_catalog()) == 94
+    assert len(load_catalog()) == 100
 
 
 def test_every_class_a_through_f_has_rows():

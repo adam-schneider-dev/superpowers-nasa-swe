@@ -32,7 +32,7 @@ The two authority columns are distinct. Per NPR 7150.2D §2.1.5.4 the NASA CIO (
 ## Steps
 
 1. Read the subsystem's `classification.yaml`, note its `class` field.
-2. Read `<this plugin's install path>/data/swe-catalog.yaml`. Check `<this plugin's install path>/data/CATALOG-COVERAGE.md` and tell the user which NPR sections are and are not yet represented in the catalog — an incomplete catalog means an incomplete matrix, and the user needs to know that up front, not discover it later. The one remaining gap is **§4.1, Software Requirements** (6 rows), which is missing for every class: a matrix generated today carries no requirements-definition rows, and any subsystem tracking that area must be told so. Class E is no longer a special case — its 12 rows are populated.
+2. Read `<this plugin's install path>/data/swe-catalog.yaml`. The catalog covers all 100 Appendix C rows — no gap to disclose. Class E returns its real 12 rows.
 3. Run — this validates the catalog before filtering it, so a corrupted or half-edited catalog fails loudly instead of quietly producing a short matrix:
 
 ```bash
