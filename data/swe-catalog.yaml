@@ -240,6 +240,36 @@
   class_ae_authority: "Center"
   classes: {A: true, B: true, C: true, D: true, E: false, F: true}
   class_f_authority: "CIO"
+- section: "4.1.2"
+  swe_id: "SWE-050"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "4.1.3"
+  swe_id: "SWE-051"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "4.1.4"
+  swe_id: "SWE-184"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: false, E: false, F: false}
+  class_f_authority: null
+- section: "4.1.5"
+  swe_id: "SWE-053"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "4.1.6"
+  swe_id: "SWE-054"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
+- section: "4.1.7"
+  swe_id: "SWE-055"
+  class_ae_authority: "Center"
+  classes: {A: true, B: true, C: true, D: true, E: false, F: true}
+  class_f_authority: "CIO"
 - section: "4.2.3"
   swe_id: "SWE-057"
   class_ae_authority: "Center"

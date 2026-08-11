@@ -81,7 +81,7 @@ def test_full_pipeline_for_a_class_f_subsystem(tmp_path):
     assert result["class"] == "F"
 
     rows = filter_rows_for_class(load_catalog(), "F")
-    assert len(rows) == 61, "Appendix C marks Class F on 61 of the 94 transcribed rows"
+    assert len(rows) == 65, "Appendix C marks Class F on 65 of the 100 transcribed rows"
 
     md = render_matrix_markdown(rows, subsystem="payroll-tool", software_class="F")
     status_rows = render_matrix_status_yaml(rows, "F")

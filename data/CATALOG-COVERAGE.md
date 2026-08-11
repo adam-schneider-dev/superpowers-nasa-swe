@@ -1,12 +1,12 @@
 # SWE Catalog Coverage
 
-**`data/swe-catalog.yaml` covers 94 of the 100 rows in NPR 7150.2D Appendix C.**
+**`data/swe-catalog.yaml` covers all 100 rows in NPR 7150.2D Appendix C.**
 
 The 100-row figure is the count of `Section` + `SWE #` pairs in the Appendix C
 table (`reference/NPR_7150.2D.pdf`, pages 56-78), extracted programmatically
 rather than counted by eye — see "Verifying coverage" below to reproduce it.
 
-## Covered — Appendix C pages 56-78, 94 rows
+## Covered — Appendix C pages 56-78, 100 rows
 
 - 3.1 Software Life Cycle Planning
 - 3.2 Software Cost Estimation
@@ -20,6 +20,7 @@ rather than counted by eye — see "Verifying coverage" below to reproduce it.
 - 3.10 Software Reuse
 - 3.11 Software Cybersecurity
 - 3.12 Software Bi-Directional Traceability
+- 4.1 Software Requirements
 - 4.2 Software Architecture
 - 4.3 Software Design
 - 4.4 Software Implementation
@@ -30,19 +31,6 @@ rather than counted by eye — see "Verifying coverage" below to reproduce it.
 - 5.3 Software Peer Reviews/Inspections
 - 5.4 Software Measurements
 - 5.5 Software Non-conformance or Defect Management
-
-## Not covered — 6 rows
-
-Tracked here, not silently missing.
-
-| Missing | Rows | Appendix C pages |
-|---|---|---|
-| **§4.1, Software Requirements — all of it** | 6 | 69-70 |
-
-§4.1 is missing in full, not merely truncated at its start. The absent rows are
-§4.1.2/SWE-050, §4.1.3/SWE-051, §4.1.4/SWE-184, §4.1.5/SWE-053, §4.1.6/SWE-054,
-and §4.1.7/SWE-055. Any subsystem tracking requirements-definition compliance
-has **no** rows for it in the generated matrix today.
 
 Chapter 2 (Roles/Responsibilities) is excluded permanently, not pending:
 NPR 7150.2D §1.3.1 states Chapter 2's requirements are not part of the
@@ -61,7 +49,8 @@ row's `default_approver` is `null` rather than presenting `null` as a name.
 
 Earlier revisions of this file noted that Class E returned zero rows because
 all 12 of Appendix C's Class E marks sat in the then-untranscribed Chapter 3.
-Chapter 3 is now transcribed (above), so Class E returns its real 12 rows.
+Chapter 3 is now transcribed, so Class E returns its real 12 rows. §4.1
+(SP3) contributes none of its own.
 
 ## Verifying coverage
 
@@ -79,12 +68,8 @@ Class F Authority and Class F applicability columns during SP1. Use the coordina
 
 ## Extending coverage
 
-1. Extract the missing page range with `pdftotext -bbox-layout` and assign each
-   cell to a column by x-coordinate — do not transcribe visually.
-2. Append the rows to `swe-catalog.yaml` in Appendix C order.
-3. Run `tests/test_catalog_integrity.py`, which calls `validate_catalog` on the
-   real file. Update its expected row count and, if the missing range carries
-   any Class marks not yet represented, its per-class assertions.
-4. Update this file.
-
-The only remaining gap is §4.1 (6 rows, pages 69-70) — see the table above.
+Coverage is complete — there is no remaining gap to extend. If NPR 7150.2D is
+ever revised, repeat this method: extract the changed page range with
+`pdftotext -bbox-layout`, assign each cell to a column by x-coordinate (never
+visually), append/update rows in Appendix C order, then run
+`tests/test_catalog_integrity.py` and update its expected counts.
