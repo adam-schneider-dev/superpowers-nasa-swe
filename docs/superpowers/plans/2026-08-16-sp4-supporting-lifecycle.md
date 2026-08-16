@@ -255,14 +255,14 @@ Class applicability: Classes A, B, C, and F carry all 8 rows below. Class D carr
 
 ## The interview
 
-1. **Configuration management plan (§5.1.2, SWE-079).** Where's the plan documenting who owns configuration management for this project — its functions, responsibilities, and authority?
-2. **Change tracking (§5.1.3, SWE-080).** How are changes to software products tracked and evaluated?
-3. **Configuration items (§5.1.4, SWE-081).** Which artifacts — code, data, tools, models, scripts, records — are under version control, and how are their versions identified? (Include build-affecting items like compiler/toolchain versions and environment settings, not just source code.)
-4. **Change control procedures (§5.1.5, SWE-082).** What procedure defines the control levels each configuration item passes through, who is authorized to approve a change, and who is allowed to make changes at each level?
-5. **Status records (§5.1.6, SWE-083).** Where are the configuration-status records for these items maintained?
-6. **Configuration audits (§5.1.7, SWE-084).** How and when are configuration audits performed to confirm items match what's on record?
-7. **Storage and release procedures (§5.1.8, SWE-085).** What's the procedure for storing, handling, delivering, releasing, and maintaining deliverable software products?
-8. **Joint audit participation (§5.1.9, SWE-045).** Is there a plan for participating in any joint NASA/developer configuration audit, and who represents the project?
+1. **Configuration management plan (§5.1.2, SWE-079).** Where's the document that assigns ownership of configuration management on this project — who's accountable for it, what it covers, and what authority backs it?
+2. **Change tracking (§5.1.3, SWE-080).** What's the workflow for catching a change to a software product and judging its impact before it lands?
+3. **Configuration items (§5.1.4, SWE-081).** Which artifacts get put under version control on this project — think beyond source code to build scripts, models, datasets, and the tools used to produce them — and how is each one's version identified?
+4. **Change control procedures (§5.1.5, SWE-082).** Walk through how a change actually gets approved and applied: what gate does an item pass through, who signs off, and who's actually allowed to touch it once approved?
+5. **Status records (§5.1.6, SWE-083).** Where does this project keep the current configuration status of its tracked items, and how is that kept up to date?
+6. **Configuration audits (§5.1.7, SWE-084).** How does the project confirm, on a regular cadence, that what's actually deployed/built matches what the configuration records say it should be?
+7. **Storage and release procedures (§5.1.8, SWE-085).** When something ships, what governs how it's packaged, handed off, and kept available afterward?
+8. **Joint audit participation (§5.1.9, SWE-045).** If NASA or an external developer partner runs a joint audit of this project's configuration practices, who from the project takes part, and is that expectation documented anywhere?
 
 If any answer doesn't exist yet as a real artifact or process, tell the user and leave that SWE-id out of `swe_ids` below.
 
@@ -521,7 +521,7 @@ Class applicability: Classes A, B, C, and F carry the single §5.2 row. Classes 
 
 ## The interview
 
-1. **Risk management process (§5.2, SWE-086).** Where is the process that captures, analyzes, plans mitigations for, tracks, controls, and communicates software risk on this project? Note whether any risk remains open after mitigation, or has been formally accepted rather than closed.
+1. **Risk management process (§5.2, SWE-086).** What single process handles software risk end-to-end here — from first noticing a risk, through analysis and a mitigation plan, all the way to closure or formal acceptance — and who gets kept in the loop on it?
 
 If the answer doesn't exist yet as a real artifact or process, tell the user and don't run the script at all — the row stays `not-started`.
 
@@ -777,8 +777,8 @@ Class applicability: Classes A, B, and C carry all 3 rows below. Class F carries
 
 ## The interview
 
-1. **Reviews performed (§5.3.2, SWE-087).** Which of these work products have had a peer review or inspection performed and reported: software requirements, software plans (including cybersecurity), any design items the project's development plans flagged for review, software code, and software test procedures? Point to where each result was reported.
-2. **Review procedure (§5.3.3, SWE-088).** For your planned reviews: what checklist or structured reading technique is used to evaluate the work products, what are the readiness and completion criteria, how are follow-up actions tracked to closure, and who are the required participants?
+1. **Reviews performed (§5.3.2, SWE-087).** This section covers peer review/inspection across five different kinds of work: what the system's supposed to do, what the team's planning to do (cybersecurity plans included), what only shows up in design when your plans call for it, the code itself, and how it gets tested. Which of those five has actually had a peer review or inspection completed, and where was each one reported?
+2. **Review procedure (§5.3.3, SWE-088).** When your team actually sits down for one of these reviews — what method guides how you evaluate the material (a checklist, a structured reading approach, something else), how do you know it's ready to review and when it's actually done, who has to be in the room, and what happens to the issues that come out of it until they're closed?
 3. **Review measurements (§5.3.4, SWE-089).** What measurements are captured for each peer review or inspection, and where are they recorded?
 
 **Evidence must be checkable, not a self-attestation.** A vague "we reviewed it" answer is not sufficient — the evidence you record must point at something a human auditor could actually go look at: a specific PR URL, a `requesting-code-review`/`receiving-code-review` transcript reference, or an equivalent record from an external review process. If the user can't point to something concrete, tell them and leave the row `not-started` rather than recording an unverifiable claim.
@@ -1043,11 +1043,11 @@ Class applicability: Classes A and B carry all 5 rows below. Class C carries all
 
 ## The interview
 
-1. **Measurement program (§5.4.2, SWE-090).** What management and technical measurements does this project collect, and how are they recorded, maintained, reported, and actually used?
+1. **Measurement program (§5.4.2, SWE-090).** What software measurements — spanning both management indicators and technical ones — does this project actually track, and can you point to where they're captured, kept current, shared out, and put to use in a real decision?
 2. **Analysis procedure (§5.4.3, SWE-093).** What documented procedure is used to analyze the collected measurement data?
-3. **Data access (§5.4.4, SWE-094).** How is measurement data, its analysis, and development status made accessible to the stakeholders who need it — the sponsoring Mission Directorate, the NASA Chief Engineer, Center Technical Authorities, HQ SMA, and others as appropriate?
-4. **Performance monitoring (§5.4.5, SWE-199).** What measures are tracked to confirm the software is on track to meet or exceed its performance, functionality, and constraint requirements?
-5. **Requirements volatility (§5.4.6, SWE-200).** How is requirements volatility measured, tracked, and reported over the project's life?
+3. **Data access (§5.4.4, SWE-094).** If the Mission Directorate, the NASA Chief Engineer, Center Technical Authorities, HQ SMA, or another oversight body asked to see your measurement data, its analysis, and current development status, how would you actually get it to them?
+4. **Performance monitoring (§5.4.5, SWE-199).** What's actually being measured to give you confidence the software will land within its performance budget, do what it's supposed to do, and stay inside its stated constraints?
+5. **Requirements volatility (§5.4.6, SWE-200).** Requirements change over a project's life — what's in place to quantify how much they're changing, keep a running record of it, and surface that number to the people who need to see it?
 
 If any answer doesn't exist yet as a real artifact or process, tell the user and leave that SWE-id out of `swe_ids` below.
 
@@ -1313,10 +1313,10 @@ Class applicability: Class E carries none of these 4 rows — this skill has not
 
 ## The interview
 
-1. **Tracking mechanism (§5.5.1, SWE-201).** What mechanism tracks and maintains software non-conformances, including defects found in tools and any supporting ground software?
-2. **Severity levels (§5.5.2, SWE-202).** What severity-level scheme is defined for non-conformances across all software — including COTS, GOTS, MOTS, OSS, reused components, and applicable ground systems?
-3. **Reused-component assessment (§5.5.3, SWE-203).** What mandatory assessment process runs against reported non-conformances in COTS, GOTS, MOTS, OSS, or other reused software components?
-4. **High-severity process assessment (§5.5.4, SWE-204).** What closed-loop process assessment runs whenever a high-severity non-conformance occurs?
+1. **Tracking mechanism (§5.5.1, SWE-201).** Where do software non-conformances get logged and kept up to date once they're found — and does that same place capture defects turning up in your tools or supporting ground software, not just the deliverable itself?
+2. **Severity levels (§5.5.2, SWE-202).** How does this project grade how bad a non-conformance is — and is that grading scheme applied uniformly whether the defect shows up in code you wrote, a COTS/GOTS/MOTS/OSS component, a reused module, or ground-system software?
+3. **Reused-component assessment (§5.5.3, SWE-203).** When a non-conformance turns up in something you didn't build in-house — COTS, GOTS, MOTS, OSS, or another reused component — what required assessment does it have to go through before it's dispositioned?
+4. **High-severity process assessment (§5.5.4, SWE-204).** When a non-conformance gets flagged as high-severity, what process kicks in to assess and fix the underlying process gap that let it happen — and how do you confirm that loop actually closes?
 
 If any answer doesn't exist yet as a real mechanism, tell the user and leave that SWE-id out of `swe_ids` below.
 
