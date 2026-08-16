@@ -509,7 +509,7 @@ description: Use to record a subsystem's NPR 7150.2D §5.2 software risk managem
 
 ## Overview
 
-Records the process that captures, analyzes, plans mitigations for, tracks, controls, and communicates software risk for this project. Does not perform risk analysis itself.
+Records the single process this project uses to work a software risk from first identification through mitigation to closure (or formal acceptance) — who owns it and how it stays visible to the team. Does not perform risk analysis itself.
 
 **Announce at start:** "I'm using the risk-management skill to record your NPR 7150.2D §5.2 risk management compliance."
 
