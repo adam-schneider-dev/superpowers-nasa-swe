@@ -19,14 +19,14 @@ Class applicability: Classes A, B, C, and F carry all 8 rows below. Class D carr
 
 ## The interview
 
-1. **Configuration management plan (§5.1.2, SWE-079).** Where's the plan documenting who owns configuration management for this project — its functions, responsibilities, and authority?
-2. **Change tracking (§5.1.3, SWE-080).** How are changes to software products tracked and evaluated?
-3. **Configuration items (§5.1.4, SWE-081).** Which artifacts — code, data, tools, models, scripts, records — are under version control, and how are their versions identified? (Include build-affecting items like compiler/toolchain versions and environment settings, not just source code.)
-4. **Change control procedures (§5.1.5, SWE-082).** What procedure defines the control levels each configuration item passes through, who is authorized to approve a change, and who is allowed to make changes at each level?
-5. **Status records (§5.1.6, SWE-083).** Where are the configuration-status records for these items maintained?
-6. **Configuration audits (§5.1.7, SWE-084).** How and when are configuration audits performed to confirm items match what's on record?
-7. **Storage and release procedures (§5.1.8, SWE-085).** What's the procedure for storing, handling, delivering, releasing, and maintaining deliverable software products?
-8. **Joint audit participation (§5.1.9, SWE-045).** Is there a plan for participating in any joint NASA/developer configuration audit, and who represents the project?
+1. **Configuration management plan (§5.1.2, SWE-079).** Where's the document that assigns ownership of configuration management on this project — who's accountable for it, what it covers, and what authority backs it?
+2. **Change tracking (§5.1.3, SWE-080).** What's the workflow for catching a change to a software product and judging its impact before it lands?
+3. **Configuration items (§5.1.4, SWE-081).** Which artifacts get put under version control on this project — think beyond source code to build scripts, models, datasets, and the tools used to produce them — and how is each one's version identified?
+4. **Change control procedures (§5.1.5, SWE-082).** Walk through how a change actually gets approved and applied: what gate does an item pass through, who signs off, and who's actually allowed to touch it once approved?
+5. **Status records (§5.1.6, SWE-083).** Where does this project keep the current configuration status of its tracked items, and how is that kept up to date?
+6. **Configuration audits (§5.1.7, SWE-084).** How does the project confirm, on a regular cadence, that what's actually deployed/built matches what the configuration records say it should be?
+7. **Storage and release procedures (§5.1.8, SWE-085).** When something ships, what governs how it's packaged, handed off, and kept available afterward?
+8. **Joint audit participation (§5.1.9, SWE-045).** If NASA or an external developer partner runs a joint audit of this project's configuration practices, who from the project takes part, and is that expectation documented anywhere?
 
 If any answer doesn't exist yet as a real artifact or process, tell the user and leave that SWE-id out of `swe_ids` below.
 
