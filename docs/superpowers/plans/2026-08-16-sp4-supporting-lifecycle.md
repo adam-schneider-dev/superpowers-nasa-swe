@@ -1301,7 +1301,7 @@ description: Use to record a subsystem's NPR 7150.2D §5.5 software non-conforma
 
 ## Overview
 
-Records the mechanism that tracks and manages software non-conformances and defects — where it lives, how severity is defined, and what assessment process runs for reused components and high-severity issues. This records the *mechanism*, not a running log of individual non-conformances — it does not track or triage defects itself.
+Records how this project catches and keeps up with its software non-conformances and defects — where the record lives, how severity gets graded, and what review process applies to reused components and high-severity issues. This records the *mechanism*, not a running log of individual non-conformances — it does not track or triage defects itself.
 
 **Announce at start:** "I'm using the non-conformance-record skill to record your NPR 7150.2D §5.5 non-conformance management compliance."
 
