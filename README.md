@@ -31,6 +31,14 @@ This fork adds a NASA NPR 7150.2D / NASA-STD-8739.8B compliance layer on top of 
 - `test-record` — record §4.5 software testing evidence across 13 rows
 - `operations-retirement` — record §4.6 operations, maintenance, and retirement planning and evidence
 
+**Supporting Lifecycle (SP4), NPR 7150.2D Chapter 5:**
+
+- `config-management` — record §5.1 software configuration management plan and mechanisms
+- `risk-management` — record §5.2 software risk management process
+- `peer-review-record` — record §5.3 software peer review/inspection evidence (layers onto `requesting-code-review`/`receiving-code-review`, doesn't duplicate them)
+- `measurements` — record §5.4 software measurement program (does not collect or analyze measurements itself)
+- `non-conformance-record` — record §5.5 software non-conformance/defect tracking mechanism
+
 See `data/CATALOG-COVERAGE.md` — the bundled requirements catalog now covers all 100 Appendix C rows, though it remains a working draft, not a certified reproduction of the standard. See `docs/superpowers/specs/` and `docs/superpowers/plans/` for the design rationale and build records of each sub-project.
 
 ---
