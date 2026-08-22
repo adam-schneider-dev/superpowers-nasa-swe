@@ -143,7 +143,7 @@ def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
 - [ ] **Step 2: Run tests to verify they fail**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe/skills/config-management/scripts
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle/skills/config-management/scripts
 python3 -m pytest test_record_config_management.py -v
 ```
 
@@ -215,7 +215,7 @@ Expected: 5 passed
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/config-management/scripts/record_config_management.py skills/config-management/scripts/test_record_config_management.py
 git commit -m "feat: add config-management record logic"
 ```
@@ -303,7 +303,7 @@ Confirm to the user which SWE-ids were marked satisfied and where the record was
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/config-management/SKILL.md
 git commit -m "feat: add config-management skill"
 ```
@@ -409,7 +409,7 @@ def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
 - [ ] **Step 2: Run tests to verify they fail**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe/skills/risk-management/scripts
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle/skills/risk-management/scripts
 python3 -m pytest test_record_risk_management.py -v
 ```
 
@@ -481,7 +481,7 @@ Expected: 5 passed
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/risk-management/scripts/record_risk_management.py skills/risk-management/scripts/test_record_risk_management.py
 git commit -m "feat: add risk-management record logic"
 ```
@@ -551,7 +551,7 @@ Confirm to the user which SWE-ids were marked satisfied and where the record was
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/risk-management/SKILL.md
 git commit -m "feat: add risk-management skill"
 ```
@@ -665,7 +665,7 @@ def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
 - [ ] **Step 2: Run tests to verify they fail**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe/skills/peer-review-record/scripts
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle/skills/peer-review-record/scripts
 python3 -m pytest test_record_peer_review_record.py -v
 ```
 
@@ -737,7 +737,7 @@ Expected: 5 passed
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/peer-review-record/scripts/record_peer_review_record.py skills/peer-review-record/scripts/test_record_peer_review_record.py
 git commit -m "feat: add peer-review-record record logic"
 ```
@@ -779,7 +779,7 @@ Class applicability: Classes A, B, and C carry all 3 rows below. Class F carries
 
 1. **Reviews performed (§5.3.2, SWE-087).** This section covers peer review/inspection across five different kinds of work: what the system's supposed to do, what the team's planning to do (cybersecurity plans included), what only shows up in design when your plans call for it, the code itself, and how it gets tested. Which of those five has actually had a peer review or inspection completed, and where was each one reported?
 2. **Review procedure (§5.3.3, SWE-088).** When your team actually sits down for one of these reviews — what method guides how you evaluate the material (a checklist, a structured reading approach, something else), how do you know it's ready to review and when it's actually done, who has to be in the room, and what happens to the issues that come out of it until they're closed?
-3. **Review measurements (§5.3.4, SWE-089).** What measurements are captured for each peer review or inspection, and where are they recorded?
+3. **Review measurements (§5.3.4, SWE-089).** What data comes out of a review that this project keeps — defect counts, time spent, who took part, anything else — and where does it get written down?
 
 **Evidence must be checkable, not a self-attestation.** A vague "we reviewed it" answer is not sufficient — the evidence you record must point at something a human auditor could actually go look at: a specific PR URL, a `requesting-code-review`/`receiving-code-review` transcript reference, or an equivalent record from an external review process. If the user can't point to something concrete, tell them and leave the row `not-started` rather than recording an unverifiable claim.
 
@@ -813,7 +813,7 @@ Confirm to the user which SWE-ids were marked satisfied and where the record was
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/peer-review-record/SKILL.md
 git commit -m "feat: add peer-review-record skill"
 ```
@@ -931,7 +931,7 @@ def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
 - [ ] **Step 2: Run tests to verify they fail**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe/skills/measurements/scripts
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle/skills/measurements/scripts
 python3 -m pytest test_record_measurements.py -v
 ```
 
@@ -1003,7 +1003,7 @@ Expected: 5 passed
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/measurements/scripts/record_measurements.py skills/measurements/scripts/test_record_measurements.py
 git commit -m "feat: add measurements record logic"
 ```
@@ -1043,11 +1043,11 @@ Class applicability: Classes A and B carry all 5 rows below. Class C carries all
 
 ## The interview
 
-1. **Measurement program (§5.4.2, SWE-090).** What software measurements — spanning both management indicators and technical ones — does this project actually track, and can you point to where they're captured, kept current, shared out, and put to use in a real decision?
+1. **Measurement program (§5.4.2, SWE-090).** Which numbers does this project keep on its software — the ones a manager watches and the ones an engineer watches? Point me at where they live, whose job it is to keep them current, who sees them, and one decision that actually came out differently because of them.
 2. **Analysis procedure (§5.4.3, SWE-093).** What documented procedure is used to analyze the collected measurement data?
-3. **Data access (§5.4.4, SWE-094).** If the Mission Directorate, the NASA Chief Engineer, Center Technical Authorities, HQ SMA, or another oversight body asked to see your measurement data, its analysis, and current development status, how would you actually get it to them?
+3. **Data access (§5.4.4, SWE-094).** When an oversight body outside the project asks — your sponsoring Mission Directorate, the NASA Chief Engineer, a Center Technical Authority, HQ SMA, or similar — what mechanism actually hands over the numbers, whatever you've concluded from them, and a current read on where development stands? Name the mechanism, not the willingness.
 4. **Performance monitoring (§5.4.5, SWE-199).** What's actually being measured to give you confidence the software will land within its performance budget, do what it's supposed to do, and stay inside its stated constraints?
-5. **Requirements volatility (§5.4.6, SWE-200).** Requirements change over a project's life — what's in place to quantify how much they're changing, keep a running record of it, and surface that number to the people who need to see it?
+5. **Requirements volatility (§5.4.6, SWE-200).** Requirements churn over a project's life. Does this project put a number on that churn, and where does that number end up — who reads it, and how often?
 
 If any answer doesn't exist yet as a real artifact or process, tell the user and leave that SWE-id out of `swe_ids` below.
 
@@ -1085,7 +1085,7 @@ Confirm to the user which SWE-ids were marked satisfied and where the record was
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/measurements/SKILL.md
 git commit -m "feat: add measurements skill"
 ```
@@ -1201,7 +1201,7 @@ def test_blocks_marking_a_tailored_out_row_satisfied(tmp_path):
 - [ ] **Step 2: Run tests to verify they fail**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe/skills/non-conformance-record/scripts
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle/skills/non-conformance-record/scripts
 python3 -m pytest test_record_non_conformance_record.py -v
 ```
 
@@ -1273,7 +1273,7 @@ Expected: 5 passed
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/non-conformance-record/scripts/record_non_conformance_record.py skills/non-conformance-record/scripts/test_record_non_conformance_record.py
 git commit -m "feat: add non-conformance-record record logic"
 ```
@@ -1353,7 +1353,7 @@ Confirm to the user which SWE-ids were marked satisfied and where the record was
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add skills/non-conformance-record/SKILL.md
 git commit -m "feat: add non-conformance-record skill"
 ```
@@ -1389,7 +1389,7 @@ Leave the `See \`data/CATALOG-COVERAGE.md\`...` paragraph as-is; the catalog not
 - [ ] **Step 2: Commit**
 
 ```bash
-cd /home/adam/RiderProjects/superpowers-nasa-swe
+cd /home/adam/RiderProjects/superpowers-nasa-swe/.claude/worktrees/worktree-sp4-supporting-lifecycle
 git add README.md
 git commit -m "docs: add SP4 skills to README"
 ```

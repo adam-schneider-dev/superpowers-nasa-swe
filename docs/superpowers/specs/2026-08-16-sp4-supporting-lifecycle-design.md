@@ -1,7 +1,7 @@
 # NASA-SWE Superpowers Fork — Supporting Lifecycle (SP4) Design
 
 **Date:** 2026-08-16
-**Status:** Draft — pending user review
+**Status:** Approved; Architecture/Error-handling/Testing sections corrected 2026-08-22 (see Corrections below)
 
 ## Background
 
@@ -37,12 +37,11 @@ Same 1:1 subsection-to-skill mapping SP3 used, for the same reason: each subsect
 
 ### Shared skill pattern (all five skills)
 
-1. Read `docs/nasa-compliance/<subsystem>/classification.yaml` for `software_class`. Hard stop with a clear message if it doesn't exist (existing SP1-3 convention).
-2. Filter the topic's catalog rows to those applicable to that class (`classes.<X>: true`).
-3. Cross-check `requirements-mapping-matrix.yaml`; skip rows already `tailored-out` rather than re-asking the user to re-decide an excluded row.
-4. Interview the user per applicable row, citing `NPR 7150.2D §<section>, SWE-<id>` only — never verbatim requirement text.
-5. Write the decision and evidence reference to `docs/nasa-compliance/<subsystem>/<topic>.yaml`.
-6. Stamp `satisfied`/`not-started` status onto the matching `requirements-mapping-matrix.yaml` rows, carrying forward SP2's guard: never silently flip a `tailored-out` row back to `satisfied`.
+1. Precondition: `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` must already exist. Class filtering happened once upstream, when `requirements-matrix` generated that file (`skills/requirements-matrix/scripts/filter_matrix.py`). The record scripts do not re-derive it and do not read `classification.yaml` — verified against every SP1-3 `record_*.py`, none of which opens that file.
+2. State the topic's class applicability as prose in `SKILL.md`, so the agent checks the matrix before interviewing. A row the subsystem's class doesn't carry is simply absent from the matrix, and passing its id to the script raises `KeyError` — that is the intended, documented failure mode, not a silent skip.
+3. Interview the user per applicable row, citing `NPR 7150.2D §<section>, SWE-<id>` only — never verbatim requirement text.
+4. Append the decision and evidence reference to `docs/nasa-compliance/<subsystem>/<topic>.md` — Markdown, matching every SP1-3 record skill, not YAML.
+5. Stamp `satisfied` plus evidence and date onto the matching `requirements-mapping-matrix.yaml` rows, carrying forward SP2's guard: refuse to flip a `tailored-out` row back to `satisfied`.
 
 ### Skill-specific notes
 
@@ -60,17 +59,27 @@ None of the five perform the underlying engineering work (no CM tooling built, n
 
 ### Error handling
 
-- Unknown SWE-id referenced → hard error, matching SP1-3.
-- Missing `classification.yaml` → hard stop, matching SP1-3.
-- Any of the five scripts attempting to flip a `tailored-out` row back to `satisfied` → guarded, matching SP2's fix-wave convention.
+- Unknown SWE-id referenced — including a row the subsystem's class doesn't carry, which is therefore absent from the matrix → `KeyError`, matching SP1-3.
+- Empty `swe_ids` → `ValueError`, matching SP1-3.
+- Any of the five scripts attempting to flip a `tailored-out` row back to `satisfied` → `ValueError`, matching SP2's fix-wave convention.
 
 ### Testing
 
 - No catalog changes, so no `test_catalog_integrity.py` changes — it already asserts 100/100 rows.
-- Each skill: golden-path plus edge-case tests (tailored-out guard, missing `classification.yaml`, unknown swe_id) — same bar as SP2/SP3's coverage growth.
+- Each skill: golden-path plus edge-case tests (tailored-out guard, empty `swe_ids`, unknown swe_id, append-to-existing-record) — same bar as SP2/SP3's coverage growth.
 - Final whole-branch review checks the diff against **both** this spec and the implementation plan (per the project memory from SP2's `reuse-assessment` spec-vs-plan drift finding), **and** diffs all five `SKILL.md` interview question sets word-for-word against the actual NPR 7150.2D §5.1-5.5 source text (per SP3's verbatim-phrasing finding), **and** confirms each skill's class-applicability table is present in the plan's first draft rather than added in a follow-up fix wave (per SP3's retroactive-fix finding).
 
 ## Open Risks
 
 - **`peer-review-record`'s evidence requirement isn't script-verifiable.** A deterministic script can check that an `evidence` field is non-empty, but it cannot verify a cited PR URL or transcript reference is real or actually shows a review. Mitigation is procedural, not technical: the interview instructs the user to supply something a human auditor could check, same as every other "evidence" field in this fork — this is a documented limitation of the whole recording pattern, not new to this skill.
 - Compliance enforcement remains undesigned by choice (see Decisions above). This is a deliberate scope boundary, not an oversight — do not silently reopen it inside SP4; it needs its own brainstorm once SP5-6 exist or a scoped-completeness concept is worked out on its own terms.
+
+## Corrections
+
+**2026-08-22 — Architecture, Error handling, and Testing sections corrected against the actual SP1-3 codebase.**
+
+As first drafted, this spec's "Shared skill pattern" prescribed behavior no SP1-3 record skill has ever implemented: reading `classification.yaml` and hard-stopping if absent, re-filtering catalog rows by class inside each skill, silently skipping `tailored-out` rows, and writing records as YAML. §Error handling and §Testing repeated those claims, the latter demanding a "missing `classification.yaml`" edge-case test that cannot exist.
+
+Verified against the code: zero of the twelve SP1-3 `record_*.py` scripts open `classification.yaml`. Class filtering is done once, upstream, by `requirements-matrix`; every record skill writes Markdown; the `tailored-out` case raises rather than skips. The SP4 implementation plan followed the real precedent, so this is a spec-vs-codebase divergence, not implementation drift — the spec was the thing that was wrong, and Tasks 1-5 as built are correct.
+
+Recorded here rather than silently rewritten, because the final whole-branch review measures the diff against this document.
