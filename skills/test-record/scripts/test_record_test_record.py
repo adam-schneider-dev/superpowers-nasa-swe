@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_test_record import record_test_record
 
 

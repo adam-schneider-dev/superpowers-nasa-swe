@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_sa_ivv_coordination import record_sa_ivv_coordination
 
 

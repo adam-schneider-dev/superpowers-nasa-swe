@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_operations_retirement import record_operations_retirement
 
 

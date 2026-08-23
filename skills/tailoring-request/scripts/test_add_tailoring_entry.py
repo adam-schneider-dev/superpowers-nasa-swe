@@ -1,6 +1,7 @@
-import yaml
 import pytest
+import yaml
 from add_tailoring_entry import add_tailoring_entry
+
 
 def write_matrix(path, rows):
     with open(path, "w") as f:

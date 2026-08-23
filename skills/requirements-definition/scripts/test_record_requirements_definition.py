@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_requirements_definition import record_requirements_definition
 
 

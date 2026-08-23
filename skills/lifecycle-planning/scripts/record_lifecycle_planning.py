@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Life Cycle Planning (NPR 7150.2D §3.1)\n\n"

@@ -1,5 +1,6 @@
 from validate_catalog import validate_catalog
 
+
 def valid_row(**overrides):
     row = {
         "section": "4.1.5",

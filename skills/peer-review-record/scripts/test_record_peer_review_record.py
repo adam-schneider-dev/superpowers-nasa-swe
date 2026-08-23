@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_peer_review_record import record_peer_review_record
 
 

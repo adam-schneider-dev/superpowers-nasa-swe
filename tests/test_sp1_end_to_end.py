@@ -1,6 +1,7 @@
 # tests/test_sp1_end_to_end.py
-import sys
 import os
+import sys
+
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -8,9 +9,9 @@ sys.path.insert(0, os.path.join(ROOT, "skills", "classify-software", "scripts"))
 sys.path.insert(0, os.path.join(ROOT, "skills", "requirements-matrix", "scripts"))
 sys.path.insert(0, os.path.join(ROOT, "skills", "tailoring-request", "scripts"))
 
+from add_tailoring_entry import add_tailoring_entry
 from classify import classify
 from filter_matrix import filter_rows_for_class, render_matrix_markdown, render_matrix_status_yaml
-from add_tailoring_entry import add_tailoring_entry
 
 
 def load_catalog():

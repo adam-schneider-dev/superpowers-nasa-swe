@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Bi-Directional Traceability (NPR 7150.2D §3.12)\n\n"

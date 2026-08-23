@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_config_management import record_config_management
 
 

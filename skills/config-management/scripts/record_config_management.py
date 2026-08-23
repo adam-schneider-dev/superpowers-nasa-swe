@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Configuration Management (NPR 7150.2D §5.1)\n\n"

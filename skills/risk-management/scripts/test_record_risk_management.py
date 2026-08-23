@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_risk_management import record_risk_management
 
 

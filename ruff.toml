@@ -1,0 +1,12 @@
+line-length = 120
+
+[lint]
+# Baseline: pyflakes (real bugs like unused imports/vars), pycodestyle errors,
+# and import sorting. Deliberately excludes stricter/opinionated rule sets
+# (bandit-style security, datetime-timezone, blind-except, etc.) for this
+# first rollout on a previously unlinted codebase.
+select = ["E", "F", "I"]
+ignore = [
+    "E501",  # line-too-long: existing test fixtures/scripts run long; not a style convention this repo follows
+    "E402",  # module-import-not-at-top: test files deliberately extend sys.path before importing local script modules
+]

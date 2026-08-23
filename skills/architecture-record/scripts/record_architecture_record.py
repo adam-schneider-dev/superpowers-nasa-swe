@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Architecture (NPR 7150.2D §4.2)\n\n"
