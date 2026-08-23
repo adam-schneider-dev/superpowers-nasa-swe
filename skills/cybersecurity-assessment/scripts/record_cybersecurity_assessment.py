@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Cybersecurity Assessment (NPR 7150.2D §3.11)\n\n"

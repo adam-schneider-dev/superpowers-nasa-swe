@@ -1,5 +1,6 @@
 # skills/non-conformance-record/scripts/record_non_conformance_record.py
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Non-conformance or Defect Management (NPR 7150.2D §5.5)\n\n"

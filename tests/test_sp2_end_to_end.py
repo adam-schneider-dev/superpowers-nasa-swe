@@ -1,6 +1,7 @@
 # tests/test_sp2_end_to_end.py
 import os
 import sys
+
 import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -10,11 +11,11 @@ sys.path.insert(0, os.path.join(ROOT, "skills", "safety-critical-determination",
 sys.path.insert(0, os.path.join(ROOT, "skills", "lifecycle-planning", "scripts"))
 sys.path.insert(0, os.path.join(ROOT, "skills", "cost-estimation", "scripts"))
 
-from classify import classify
-from filter_matrix import filter_rows_for_class, render_matrix_markdown, render_matrix_status_yaml
 from amend_safety_critical import amend_safety_critical, mark_matrix_satisfied
-from record_lifecycle_planning import record_lifecycle_planning
+from classify import classify
+from filter_matrix import filter_rows_for_class, render_matrix_status_yaml
 from record_cost_estimation import record_cost_estimation
+from record_lifecycle_planning import record_lifecycle_planning
 
 
 def test_full_pipeline_for_a_class_e_subsystem_found_safety_critical(tmp_path):

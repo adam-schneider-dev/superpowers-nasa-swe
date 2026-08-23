@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Operations, Maintenance, and Retirement (NPR 7150.2D §4.6)\n\n"

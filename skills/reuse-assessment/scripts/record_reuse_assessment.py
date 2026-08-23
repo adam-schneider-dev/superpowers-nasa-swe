@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Reuse Assessment (NPR 7150.2D §3.10)\n\n"

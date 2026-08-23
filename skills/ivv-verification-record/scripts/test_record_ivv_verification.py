@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_ivv_verification import record_ivv_verification
 
 

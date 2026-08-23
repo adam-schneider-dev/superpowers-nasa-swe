@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Cost Estimation (NPR 7150.2D §3.2)\n\n"

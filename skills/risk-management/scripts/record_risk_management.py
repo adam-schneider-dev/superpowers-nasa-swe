@@ -1,4 +1,5 @@
 import datetime
+
 import yaml
 
 DEFAULT_HEADER = "# Software Risk Management (NPR 7150.2D §5.2)\n\n"

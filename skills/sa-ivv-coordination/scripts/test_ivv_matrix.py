@@ -1,4 +1,3 @@
-import pytest
 
 from ivv_matrix import render_ivv_matrix_markdown, render_ivv_matrix_status_yaml
 

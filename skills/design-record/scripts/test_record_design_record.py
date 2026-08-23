@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_design_record import record_design_record
 
 

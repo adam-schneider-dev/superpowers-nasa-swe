@@ -1,10 +1,10 @@
 import pytest
-
 from filter_matrix import (
     filter_rows_for_class,
     render_matrix_markdown,
     render_matrix_status_yaml,
 )
+
 
 def sample_rows():
     return [

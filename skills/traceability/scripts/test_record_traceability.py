@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_traceability import record_traceability
 
 

@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_architecture_record import record_architecture_record
 
 
