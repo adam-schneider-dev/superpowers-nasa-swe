@@ -46,7 +46,12 @@ One new skill, `ivv-verification-record`, plus a small extension to the existing
 
 ### Generation — extending `sa-ivv-coordination`
 
-When the existing interview's §3.6.2/SWE-141 question ("is this subsystem in a category that requires IV&V?") is answered yes, `sa-ivv-coordination`'s script also writes `ivv-mapping-matrix.yaml` from `data/ivv-catalog.yaml`: all 49 rows, `status: "not-started"`, `evidence: null`, `date: null` — the same shape `render_matrix_status_yaml` already produces for the main matrix, just without a class filter (there is none to apply). When the question is answered no, no file is written; `ivv-verification-record`'s precondition (file must exist) makes that the documented, intentional failure mode for a subsystem where IV&V doesn't apply — matching how an absent matrix row already behaves everywhere else in this fork.
+Matrix generation in this fork is never done by a record script — `requirements-matrix` establishes the actual pattern: library functions (`filter_matrix.py`'s `render_matrix_markdown`/`render_matrix_status_yaml`) return data, and the *SKILL.md* instructs the agent to run an inline snippet, print the result, and write it to disk itself. `sa-ivv-coordination`'s record script stays untouched — it only ever wrote Markdown records and stamped matrix rows, and continues to do only that.
+
+The extension is at the `SKILL.md`/data layer, not the script:
+- New `skills/sa-ivv-coordination/scripts/ivv_matrix.py` with `render_ivv_matrix_markdown(rows)` and `render_ivv_matrix_status_yaml(rows)` — same shapes as `filter_matrix.py`'s renderers, minus the class filter (there is none to apply; every row applies once IV&V is confirmed).
+- `sa-ivv-coordination`'s `SKILL.md` gets one new step: when its existing §3.6.2/SWE-141 applicability question is answered yes, the agent runs a snippet loading `data/ivv-catalog.yaml`, calling the two render functions above, and writing `docs/nasa-compliance/<subsystem>/ivv-mapping-matrix.md` and `.yaml` — the same two-file pattern `requirements-matrix` already uses for the main matrix.
+- When the question is answered no, neither file is written; `ivv-verification-record`'s precondition (file must exist) makes that the documented, intentional failure mode for a subsystem where IV&V doesn't apply — matching how an absent matrix row already behaves everywhere else in this fork.
 
 ### Recording — new `ivv-verification-record` skill
 
@@ -86,7 +91,7 @@ Same three mandated behaviors as every SP1-4 record script, applied to the new `
 
 - `test_ivv_catalog_integrity.py` (new, mirrors `test_catalog_integrity.py`'s spirit, scoped to the new file): asserts 49 rows, ids `IVV-4.4.2.1` through `IVV-4.4.2.49`, no duplicates, sections match ids.
 - `record_ivv_verification.py`: 5 tests — golden path, the 3 mandated error paths, append-to-existing-record. Same bar as every SP1-4 script.
-- `sa-ivv-coordination` extension: test that answering IV&V-applicable = yes generates the 49-row matrix with `status: not-started`; answering no does not write the file; re-running with yes again regenerates cleanly (matches the existing main-matrix regeneration behavior).
+- `ivv_matrix.py`'s `render_ivv_matrix_markdown`/`render_ivv_matrix_status_yaml`: tested directly as library functions (input catalog rows → output markdown string / status-row list), mirroring `test_filter_matrix.py`'s approach — not a test that a script wrote a file, since no script does that here; the SKILL.md-directed agent does.
 - **Final whole-branch review must specifically re-check the 9 interview questions against the §4.4.2 source text for order-mirroring, not just verbatim-phrase matches.** This is the highest-surface-area interview yet for the fork's single most recurring defect (verbatim/list-order phrasing drift from NPR/NASA-STD source text) — 49 source items funneled into 9 questions is more compression, and more risk of accidentally reproducing the standard's own ordering, than any prior sub-project's interviews. SP4's final review caught exactly this failure mode in a task that had shipped without independent review; this spec calls it out at the plan level up front instead of relying on review alone to catch it.
 
 ## Open Risks
