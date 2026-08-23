@@ -46,9 +46,10 @@ This fork adds a NASA NPR 7150.2D / NASA-STD-8739.8B compliance layer on top of 
 
 **Software Assurance & Safety Tasks (SP5 Part 2a), NASA-STD-8739.8B §4.3 Table 1, Chapter 3:**
 
-- `sa-task-verification-management` — record SA/safety task evidence for Chapter 3 (Management) requirements; driven by `data/sa-task-catalog.yaml` (45 rows) and filtered via `requirements-matrix` to produce `sa-task-mapping-matrix.yaml`
+- `sa-task-verification-management` — record SA/safety task evidence for Chapter 3 (Management) requirements; driven by `data/sa-task-catalog.yaml` (82 rows) and filtered via `requirements-matrix` to produce `sa-task-mapping-matrix.yaml`
+- `sa-task-verification-management-engineering` — record SA/safety task evidence for Chapter 4 (Engineering) requirements; reads the same `sa-task-mapping-matrix.yaml` produced by `requirements-matrix`
 
-Hazard analysis (Appendix A) and the remaining §4.3 SA-task chapters (4-6, Parts 2b-2c) are separate, not-yet-started SP5 follow-ons — see `docs/superpowers/specs/2026-08-22-sp5-ivv-verification-design.md`'s Background for the full breakdown.
+Hazard analysis (Appendix A) and the remaining §4.3 SA-task chapters (5-6, Parts 2c) are separate, not-yet-started SP5 follow-ons — see `docs/superpowers/specs/2026-08-22-sp5-ivv-verification-design.md`'s Background for the full breakdown.
 
 See `data/CATALOG-COVERAGE.md` — the bundled requirements catalog now covers all 100 Appendix C rows, though it remains a working draft, not a certified reproduction of the standard. See `docs/superpowers/specs/` and `docs/superpowers/plans/` for the design rationale and build records of each sub-project.
 
