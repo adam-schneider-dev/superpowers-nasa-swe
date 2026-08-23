@@ -70,3 +70,32 @@ If the script exits with `CATALOG ERROR` lines, stop and report them — do not 
 4. Write the printed markdown to `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.md` in the project being worked on.
 5. Write the printed status YAML to `docs/nasa-compliance/<subsystem>/requirements-mapping-matrix.yaml` in the same location. Each entry carries `swe_id`, `section`, `software_class`, `default_approver`, `status`, `evidence`, and `date`. `software_class` is the class this matrix was generated for — compare it against `classification.yaml`'s `class` to tell whether a matrix is still current or was left over from a previous class. `default_approver` is the authority resolved for this subsystem's class — the `class_f_authority` for Class F, the `class_ae_authority` otherwise — and it is what the `tailoring-request` skill offers as the default approving authority.
 6. Tell the user how many requirements apply to their class and remind them the matrix only reflects the catalog's current coverage (per step 2).
+7. Generate the parallel SA/safety task matrix (NASA-STD-8739.8B §4.3 Table 1) for whatever chapters `data/sa-task-catalog.yaml` currently covers — see `data/SA-TASK-CATALOG-COVERAGE.md` for its current scope:
+
+```bash
+cd <this-plugin's-install-path>/skills/requirements-matrix/scripts
+python3 -c "
+import yaml
+from sa_task_matrix import filter_sa_task_rows_for_class, render_sa_task_matrix_markdown, render_sa_task_matrix_status_yaml
+
+with open('../../../data/sa-task-catalog.yaml') as f:
+    sa_task_catalog = yaml.safe_load(f)
+with open('../../../data/swe-catalog.yaml') as f:
+    swe_catalog = yaml.safe_load(f)
+
+software_class = '<class from classification.yaml>'
+subsystem = '<subsystem name>'
+
+rows = filter_sa_task_rows_for_class(sa_task_catalog, swe_catalog, software_class)
+if rows:
+    md = render_sa_task_matrix_markdown(rows, subsystem, software_class)
+    status_rows = render_sa_task_matrix_status_yaml(rows, software_class)
+    print(md)
+    print('---STATUS-YAML---')
+    print(yaml.dump(status_rows, sort_keys=False))
+else:
+    print('NO SA TASK ROWS APPLICABLE — skip writing sa-task-mapping-matrix files')
+"
+```
+
+If the script prints `NO SA TASK ROWS APPLICABLE`, do not write any SA task matrix files — this class has no applicable rows in the catalog's current coverage (either genuinely none, or the relevant chapter hasn't been added yet per `SA-TASK-CATALOG-COVERAGE.md`). Otherwise, write the printed markdown to `docs/nasa-compliance/<subsystem>/sa-task-mapping-matrix.md` and the printed status YAML to `docs/nasa-compliance/<subsystem>/sa-task-mapping-matrix.yaml` — the same two-file pattern used for the main matrix. `sa-task-verification-management` requires this file to exist before it can record Chapter 3 SA task evidence.
