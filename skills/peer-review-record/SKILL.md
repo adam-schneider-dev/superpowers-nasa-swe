@@ -19,7 +19,7 @@ Class applicability: Classes A, B, and C carry all 3 rows below. Class F carries
 
 ## The interview
 
-1. **Reviews performed (§5.3.2, SWE-087).** This section covers peer review/inspection across five different kinds of work: what the system's supposed to do, what the team's planning to do (cybersecurity plans included), what only shows up in design when your plans call for it, the code itself, and how it gets tested. Which of those five has actually had a peer review or inspection completed, and where was each one reported?
+1. **Reviews performed (§5.3.2, SWE-087).** Peer review/inspection coverage can span several kinds of artifact: the code that's actually shipped, the test procedures written to exercise it, any design items your plans flagged for review, and the upstream material driving all of it — what the system's supposed to do, and how the team (cybersecurity included) plans to build it. Which of those has actually had a peer review or inspection completed, and where was each one reported?
 2. **Review procedure (§5.3.3, SWE-088).** When your team actually sits down for one of these reviews — what method guides how you evaluate the material (a checklist, a structured reading approach, something else), how do you know it's ready to review and when it's actually done, who has to be in the room, and what happens to the issues that come out of it until they're closed?
 3. **Review measurements (§5.3.4, SWE-089).** What data comes out of a review that this project keeps — defect counts, time spent, who took part, anything else — and where does it get written down?
 
