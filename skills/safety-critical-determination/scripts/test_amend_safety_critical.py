@@ -4,8 +4,8 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "classify-software", "scripts"))
 sys.path.insert(0, os.path.dirname(__file__))
 
-import yaml
 import pytest
+import yaml
 from amend_safety_critical import amend_safety_critical, mark_matrix_satisfied
 
 

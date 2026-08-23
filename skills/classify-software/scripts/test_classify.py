@@ -1,5 +1,6 @@
 from classify import classify
 
+
 def base_answers(**overrides):
     answers = {
         "class_a_human_rated": False,

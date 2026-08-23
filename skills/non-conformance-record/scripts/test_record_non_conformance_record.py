@@ -1,6 +1,6 @@
 # skills/non-conformance-record/scripts/test_record_non_conformance_record.py
-import yaml
 import pytest
+import yaml
 from record_non_conformance_record import record_non_conformance_record
 
 

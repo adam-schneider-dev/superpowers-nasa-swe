@@ -1,6 +1,6 @@
 # skills/measurements/scripts/test_record_measurements.py
-import yaml
 import pytest
+import yaml
 from record_measurements import record_measurements
 
 

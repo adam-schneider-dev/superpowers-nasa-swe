@@ -6,8 +6,9 @@ Breaks down usage by main session and individual subagents.
 
 import json
 import sys
-from pathlib import Path
 from collections import defaultdict
+from pathlib import Path
+
 
 def analyze_main_session(filepath):
     """Analyze a session file and return token usage broken down by agent."""

@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_reuse_assessment import record_reuse_assessment
 
 
