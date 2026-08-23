@@ -1,5 +1,5 @@
-import yaml
 import pytest
+import yaml
 from record_sa_task_verification import record_sa_task_verification
 
 

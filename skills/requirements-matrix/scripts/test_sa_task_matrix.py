@@ -1,5 +1,4 @@
 import pytest
-
 from sa_task_matrix import (
     filter_sa_task_rows_for_class,
     render_sa_task_matrix_markdown,

@@ -1,4 +1,4 @@
-from filter_matrix import filter_rows_for_class, _check_class
+from filter_matrix import _check_class, filter_rows_for_class
 
 
 def filter_sa_task_rows_for_class(sa_task_rows, swe_catalog_rows, software_class):
