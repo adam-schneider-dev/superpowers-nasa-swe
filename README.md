@@ -44,7 +44,11 @@ This fork adds a NASA NPR 7150.2D / NASA-STD-8739.8B compliance layer on top of 
 - `ivv-verification-record` — record the 49 IV&V provider verification requirements (planning, oversight, requirements/design/code/test verification, maintenance) once IV&V is confirmed applicable
 - `sa-ivv-coordination` (SP2, extended) — now also generates the subsystem's IV&V verification matrix when it records IV&V as applicable
 
-Hazard analysis (Appendix A) and the §4.3 SA-task catalog (~90 rows, keyed to existing SWE-ids) are separate, not-yet-started SP5 follow-ons — see `docs/superpowers/specs/2026-08-22-sp5-ivv-verification-design.md`'s Background for the full three-part breakdown.
+**Software Assurance & Safety Tasks (SP5 Part 2a), NASA-STD-8739.8B §4.3 Table 1, Chapter 3:**
+
+- `sa-task-verification-management` — record SA/safety task evidence for Chapter 3 (Management) requirements; driven by `data/sa-task-catalog.yaml` (45 rows) and filtered via `requirements-matrix` to produce `sa-task-mapping-matrix.yaml`
+
+Hazard analysis (Appendix A) and the remaining §4.3 SA-task chapters (4-6, Parts 2b-2c) are separate, not-yet-started SP5 follow-ons — see `docs/superpowers/specs/2026-08-22-sp5-ivv-verification-design.md`'s Background for the full breakdown.
 
 See `data/CATALOG-COVERAGE.md` — the bundled requirements catalog now covers all 100 Appendix C rows, though it remains a working draft, not a certified reproduction of the standard. See `docs/superpowers/specs/` and `docs/superpowers/plans/` for the design rationale and build records of each sub-project.
 
