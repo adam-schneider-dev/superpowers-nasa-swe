@@ -69,3 +69,41 @@ def test_render_status_yaml_defaults():
 def test_render_status_yaml_has_no_default_approver_field():
     status_rows = render_sa_task_matrix_status_yaml(sample_sa_task_rows(), software_class="C")
     assert "default_approver" not in status_rows[0]
+
+
+def sample_lettered_sa_task_rows():
+    return [
+        {"swe_id": "SWE-065a", "section": "4.5.2"},
+        {"swe_id": "SWE-065b", "section": "4.5.2"},
+    ]
+
+
+def sample_swe_catalog_rows_with_065():
+    return [
+        {
+            "section": "4.5.2", "swe_id": "SWE-065",
+            "class_ae_authority": "Center",
+            "classes": {"A": True, "B": True, "C": True, "D": True, "E": False, "F": True},
+            "class_f_authority": "CIO",
+        },
+    ]
+
+
+def test_filter_keeps_lettered_rows_when_base_id_applicable():
+    rows = filter_sa_task_rows_for_class(
+        sample_lettered_sa_task_rows(), sample_swe_catalog_rows_with_065(), "C"
+    )
+    assert {r["swe_id"] for r in rows} == {"SWE-065a", "SWE-065b"}
+
+
+def test_filter_excludes_lettered_rows_when_base_id_not_applicable():
+    rows = filter_sa_task_rows_for_class(
+        sample_lettered_sa_task_rows(), sample_swe_catalog_rows_with_065(), "E"
+    )
+    assert rows == []
+
+
+def test_render_markdown_header_does_not_name_a_specific_chapter():
+    md = render_sa_task_matrix_markdown(sample_sa_task_rows(), subsystem="widget-firmware", software_class="C")
+    assert "Chapter 3" not in md
+    assert "SA-TASK-CATALOG-COVERAGE.md" in md
