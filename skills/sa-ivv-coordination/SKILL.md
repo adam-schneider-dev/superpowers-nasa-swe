@@ -50,3 +50,28 @@ If there's no plan to point to yet, don't run the script — tell the user the r
 ## Writing the output
 
 Confirm to the user which SWE-ids were marked satisfied and where the record was written.
+
+## If IV&V applies (§3.6.2, SWE-141 answered yes)
+
+Generate this subsystem's IV&V verification matrix — the separate `ivv-verification-record` skill (NASA-STD-8739.8B §4.4.2) needs it to record the 49 IV&V provider verification requirements. Skip this section entirely if question 3's answer was no; do not generate an empty or placeholder matrix for a subsystem that doesn't require IV&V.
+
+```bash
+cd <this-plugin's-install-path>/skills/sa-ivv-coordination/scripts
+python3 -c "
+import yaml
+from ivv_matrix import render_ivv_matrix_markdown, render_ivv_matrix_status_yaml
+
+with open('../../../data/ivv-catalog.yaml') as f:
+    catalog = yaml.safe_load(f)
+
+subsystem = '<subsystem name>'
+md = render_ivv_matrix_markdown(catalog, subsystem)
+status_rows = render_ivv_matrix_status_yaml(catalog)
+
+print(md)
+print('---STATUS-YAML---')
+print(yaml.dump(status_rows, sort_keys=False))
+"
+```
+
+Write the printed markdown to `docs/nasa-compliance/<subsystem>/ivv-mapping-matrix.md` and the printed status YAML to `docs/nasa-compliance/<subsystem>/ivv-mapping-matrix.yaml` in the project being worked on — the same two-file pattern `requirements-matrix` uses for the main matrix. All 49 rows start `not-started`; nothing here is filtered by class, since every row applies once IV&V is confirmed applicable.
