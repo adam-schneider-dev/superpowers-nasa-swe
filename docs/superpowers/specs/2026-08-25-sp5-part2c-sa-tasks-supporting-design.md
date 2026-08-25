@@ -16,6 +16,7 @@ This spec covers Chapter 5, Supporting Software Life Cycle Requirements — the 
 - **No `swe_id` collides with a row already in the catalog.** All 21 are new to `sa-task-catalog.yaml`.
 - **Subsection sizes are far less skewed than Chapter 4's.** Range is 1-8 rows, versus Chapter 4's 1-16.
 - **The 5 subsections map 1:1 onto SP4's five existing Chapter 5 skills** — `config-management`, `risk-management`, `peer-review-record`, `measurements`, `non-conformance-record`.
+- **SWE-086's section is `5.2`, not `5.2.1`.** Corrected after implementation: this document originally took `5.2.1` from Table 1 without cross-checking NPR 7150.2D, which states the requirement directly under its `5.2 Software Risk Management` heading with no sub-number. Section numbers come from NPR via `swe-catalog.yaml`, and `test_section_matches_swe_catalog_section_for_every_row` enforces that, so `5.2` is what ships. It is the catalog's only two-part section.
 - **Class E has zero applicable Chapter 5 rows.** Per-class applicable row counts, inherited from `swe-catalog.yaml`: A 21, B 21, C 19, D 8, E 0, F 13. A Class E subsystem's generated matrix contains no `5.` rows at all — the skill must treat that as a legitimate outcome, not a generation failure.
 
 ## Scope
@@ -36,7 +37,7 @@ Out of scope: Appendix A hazard analysis (SP5 Part 3), which remains a separate 
 |---|---|---|---|---|---|
 | 1 | CM planning & change control | `cm_planning_and_change_control` | §5.1.2-§5.1.6 | 079, 081, 082, 080, 083 | 5 |
 | 2 | CM audits & release | `cm_audits_and_release` | §5.1.7-§5.1.9 | 084, 045, 085 | 3 |
-| 3 | Risk management | `risk_management` | §5.2.1 | 086 | 1 |
+| 3 | Risk management | `risk_management` | §5.2 | 086 | 1 |
 | 4 | Peer reviews / inspections | `peer_reviews_and_inspections` | §5.3.2-§5.3.4 | 087, 088, 089 | 3 |
 | 5 | Measurements | `measurements` | §5.4.2-§5.4.6 | 090, 093, 094, 199, 200 | 5 |
 | 6 | Non-conformance & defect | `non_conformance_and_defect` | §5.5.1-§5.5.4 | 201, 202, 203, 204 | 4 |

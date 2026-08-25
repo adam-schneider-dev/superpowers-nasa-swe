@@ -46,6 +46,14 @@ applicability for all four is looked up against that one shared row —
 Table 1 ends at §5.5.4 / SWE-204 — it has no Chapter 6 or 7 rows. With Chapter
 5 added, this catalog covers the table in full.
 
+Note: SWE-086's section is recorded as `5.2`, not `5.2.1`. The two standards
+disagree here — NASA-STD-8739.8B's Table 1 labels the row `5.2.1`, while NPR
+7150.2D states the requirement directly under its `5.2 Software Risk
+Management` heading with no sub-number. Section numbers in this repo come from
+NPR via `swe-catalog.yaml`, and `test_section_matches_swe_catalog_section_for_every_row`
+enforces that agreement, so `5.2` is correct here and is not a transcription
+error. It is the catalog's only two-part section.
+
 Note: Class E has no applicable Chapter 5 rows at all. Per-class applicable
 counts, inherited from `swe-catalog.yaml`: A 21, B 21, C 19, D 8, E 0, F 13.
 
