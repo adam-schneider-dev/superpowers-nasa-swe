@@ -1,9 +1,9 @@
 # tests/test_sa_task_catalog_integrity.py
 """Guards data/sa-task-catalog.yaml (NASA-STD-8739.8B §4.3 Table 1's Chapter
-3-4 rows) against a bad edit or transcription pass — same purpose as
+3-5 rows) against a bad edit or transcription pass — same purpose as
 test_catalog_integrity.py for the SWE catalog and test_ivv_catalog_integrity.py
-for the IV&V catalog. Extended (not replaced) by Part 2b to cover Chapter 4;
-Part 2c will extend it again for Chapter 5.
+for the IV&V catalog. Extended (not replaced) by Part 2b for Chapter 4 and
+Part 2c for Chapter 5, which completes the table at 103 rows.
 """
 import os
 
@@ -31,8 +31,8 @@ def _base_swe_id(swe_id):
     return swe_id[:-1] if swe_id[-1].isalpha() else swe_id
 
 
-def test_bundled_sa_task_catalog_has_82_rows():
-    assert len(load_sa_task_catalog()) == 82
+def test_bundled_sa_task_catalog_has_103_rows():
+    assert len(load_sa_task_catalog()) == 103
 
 
 def test_every_swe_id_is_unique():
@@ -58,14 +58,43 @@ def test_section_matches_swe_catalog_section_for_every_row():
         assert row["section"] == swe_sections[_base_swe_id(row["swe_id"])]
 
 
-def test_all_rows_are_chapter_3_or_4():
+def test_all_rows_are_chapter_3_4_or_5():
     for row in load_sa_task_catalog():
-        assert row["section"].startswith("3.") or row["section"].startswith("4.")
+        assert (
+            row["section"].startswith("3.")
+            or row["section"].startswith("4.")
+            or row["section"].startswith("5.")
+        )
 
 
 def test_chapter_4_has_37_rows():
     ch4 = [r for r in load_sa_task_catalog() if r["section"].startswith("4.")]
     assert len(ch4) == 37
+
+
+def test_chapter_5_has_21_rows():
+    ch5 = [r for r in load_sa_task_catalog() if r["section"].startswith("5.")]
+    assert len(ch5) == 21
+
+
+def test_chapter_5_rows_match_table_1_exactly():
+    """Pins Chapter 5's exact (swe_id, section) pairs so a dropped or altered
+    row fails loudly rather than only shifting a count another test asserts."""
+    expected = [
+        ("SWE-079", "5.1.2"), ("SWE-080", "5.1.3"), ("SWE-081", "5.1.4"),
+        ("SWE-082", "5.1.5"), ("SWE-083", "5.1.6"), ("SWE-084", "5.1.7"),
+        ("SWE-085", "5.1.8"), ("SWE-045", "5.1.9"), ("SWE-086", "5.2"),
+        ("SWE-087", "5.3.2"), ("SWE-088", "5.3.3"), ("SWE-089", "5.3.4"),
+        ("SWE-090", "5.4.2"), ("SWE-093", "5.4.3"), ("SWE-094", "5.4.4"),
+        ("SWE-199", "5.4.5"), ("SWE-200", "5.4.6"), ("SWE-201", "5.5.1"),
+        ("SWE-202", "5.5.2"), ("SWE-203", "5.5.3"), ("SWE-204", "5.5.4"),
+    ]
+    actual = [
+        (r["swe_id"], r["section"])
+        for r in load_sa_task_catalog()
+        if r["section"].startswith("5.")
+    ]
+    assert actual == expected
 
 
 def test_swe_065_lettered_rows_all_share_section_4_5_2():

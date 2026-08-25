@@ -58,8 +58,9 @@ One skill per section of the NPR, each walking the matrix rows that apply to you
 | Skill | What it does |
 | --- | --- |
 | `ivv-verification-record` | Records the 49 §4.4.2 IV&V provider verification duties. Only runs once `sa-ivv-coordination` has recorded IV&V as applicable — that's what generates the IV&V matrix it reads. |
-| `sa-task-verification-management` | Records §4.3 Table 1 SA/safety task evidence for the NPR's Chapter 3 (Management) requirements — 45 of the catalog's 82 rows. |
-| `sa-task-verification-management-engineering` | Same pattern for Chapter 4 (Engineering) requirements — the other 37 rows. Both skills read the same generated `sa-task-mapping-matrix.yaml`, each touching only its own chapter's rows. |
+| `sa-task-verification-management` | Records §4.3 Table 1 SA/safety task evidence for the NPR's Chapter 3 (Management) requirements — 45 of the catalog's 103 rows. |
+| `sa-task-verification-management-engineering` | Same pattern for Chapter 4 (Engineering) requirements — 37 rows. |
+| `sa-task-verification-supporting` | Same pattern for Chapter 5 (Supporting Life Cycle) requirements — the final 21 rows. All three skills read the same generated `sa-task-mapping-matrix.yaml`, each touching only its own chapter's rows. |
 
 ### Where the evidence lands
 
@@ -71,7 +72,7 @@ The bundled catalogs are working drafts derived from the standards in `reference
 
 - `data/swe-catalog.yaml` covers all 100 NPR 7150.2D Appendix C rows — see `data/CATALOG-COVERAGE.md`.
 - `data/ivv-catalog.yaml` covers all 49 NASA-STD-8739.8B §4.4.2 rows.
-- `data/sa-task-catalog.yaml` covers 82 of §4.3 Table 1's 103 rows — Chapter 3 (45) and Chapter 4 (37). Chapter 5's remaining 21 rows are not yet covered; see `data/SA-TASK-CATALOG-COVERAGE.md`.
+- `data/sa-task-catalog.yaml` covers all 103 rows of §4.3 Table 1 — Chapter 3 (45), Chapter 4 (37), and Chapter 5 (21). See `data/SA-TASK-CATALOG-COVERAGE.md`.
 - Appendix A hazard analysis is not yet covered.
 
 Design rationale and build records for each piece of this layer live in `docs/superpowers/specs/` and `docs/superpowers/plans/`.
