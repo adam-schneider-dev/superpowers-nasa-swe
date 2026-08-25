@@ -1,10 +1,10 @@
 # SA Task Catalog Coverage
 
-**`data/sa-task-catalog.yaml` covers 82 of NASA-STD-8739.8B §4.3 Table 1's 103 rows.**
+**`data/sa-task-catalog.yaml` covers all 103 of NASA-STD-8739.8B §4.3 Table 1's rows.**
 
 Table 1 splits cleanly along NPR 7150.2D's own chapter boundaries — the same
 ones SP2/SP3/SP4 used to build `data/swe-catalog.yaml` and its 13 record
-skills. This catalog is being built the same way, one chapter at a time.
+skills. This catalog was built the same way, one chapter at a time.
 
 ## Covered — Chapter 3, Software Management, 45 rows (SP5 Part 2a)
 
@@ -35,14 +35,23 @@ Note: SWE-065's four lettered sub-tasks (065a-065d, all under NPR section
 applicability for all four is looked up against that one shared row —
 `sa_task_matrix.py` strips a trailing letter suffix before the lookup.
 
-## Not yet covered
+## Covered — Chapter 5, Supporting Software Life Cycle, 21 rows (SP5 Part 2c)
 
-- **Chapter 5, Supporting Lifecycle, 21 rows** — SP5 Part 2c, not started.
+- 5.1 Software Configuration Management
+- 5.2 Software Risk Management
+- 5.3 Software Peer Reviews/Inspections
+- 5.4 Software Measurements
+- 5.5 Software Non-conformance or Defect
 
-`requirements-matrix`'s `sa-task-mapping-matrix.yaml` output reflects
-whatever this catalog currently covers — a subsystem generated before Part
-2c lands gets a Chapter 3+4-only SA-task matrix. Re-running `requirements-matrix`
-after it lands picks up the newly added rows.
+Table 1 ends at §5.5.4 / SWE-204 — it has no Chapter 6 or 7 rows. With Chapter
+5 added, this catalog covers the table in full.
+
+Note: Class E has no applicable Chapter 5 rows at all. Per-class applicable
+counts, inherited from `swe-catalog.yaml`: A 21, B 21, C 19, D 8, E 0, F 13.
+
+A subsystem whose `sa-task-mapping-matrix.yaml` was generated before this
+chapter landed carries only Chapter 3-4 rows; re-running `requirements-matrix`
+regenerates it against the full catalog.
 
 ## Verifying coverage
 
